@@ -56,7 +56,9 @@ Projeto desenvolvido por:
 
 **Integrantes do grupo**
 
-*Adicione aqui os nomes completos dos integrantes.*
+*ANDERSON RIBEIRO DA SILVA
+JUSCELINO EMANOEL NUNES GALVÃO
+MARIA VITÓRIA ELIAS SILVA*
 
 ---
 
