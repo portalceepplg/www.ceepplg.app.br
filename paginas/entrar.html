@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="icon" type="image/png"
+        href="https://i.ibb.co/rR9W2Zwj/Logotipo-ceep-em-azul-e-vermelho.png">
+
+    <title>Portal CEEPPLG | Login</title>
+</head>
+
+<body class="pagina-login" data-verificar-sessao="/php/status-sessao.php">
+
+    <main class="login-container">
+
+        <!-- LADO ESQUERDO: FORMULÁRIO -->
+        <section class="login-lado">
+
+            <a href="/index.html" class="voltar">
+                ← Voltar
+            </a>
+
+            <div class="login-box">
+
+                <img
+                    src="https://i.ibb.co/vCK1m7DP/1786128151276.png"
+                    alt="Logo CEEPPLG"
+                    class="logo"
+                >
+
+                <!-- ALUNO / PROFESSOR -->
+                <div class="tipo-login">
+                    <button type="button" id="btnAluno" class="tipo-btn ativo-aluno" onclick="selecionarTipo('aluno')">
+                        <i class="fa-regular fa-user"></i>
+                        Aluno
+                    </button>
+                    <button type="button" id="btnProfessor" class="tipo-btn" onclick="selecionarTipo('professor')">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Professor
+                    </button>
+                    <!-- Campo oculto para enviar o tipo escolhido para o PHP -->
+                    <input type="hidden" id="tipoUsuario" name="tipo_usuario" value="aluno">
+                </div>
+
+                <!-- FORMULÁRIO DE LOGIN -->
+                <form
+                    id="loginForm"
+                    action="/php/login.php"
+                    method="POST"
+                >
+
+                    <label for="usuario">Matrícula</label>
+
+                    <input
+                        type="text"
+                        id="usuario"
+                        name="usuario"
+                        placeholder="Sua matrícula"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <label for="senha">Senha</label>
+
+                    <div class="senha-container">
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Sua senha"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="mostrarSenha"
+                            aria-label="Mostrar senha"
+                        >
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+
+                    </div>
+
+                    <button type="submit" class="btn-entrar">
+                        Entrar
+                        <i class="fa-solid fa-lock"></i>
+                    </button>
+
+
+                    <div id="mensagemErro" class="mensagem-erro" role="alert" aria-live="polite">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <span id="textoErro">Matrícula ou senha incorreta.</span>
+                    </div>
+
+
+                </form>
+
+                <!-- SEPARADOR -->
+                <div class="separador">
+                    <span></span>
+                    <p>OU</p>
+                    <span></span>
+                </div>
+
+                <!-- ACESSO À GESTÃO -->
+                <a href="/paginas/entraradm.html" class="btn-gestor">
+                    Sou um gestor
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- LADO DIREITO: IMAGEM -->
+        <section class="imagem-lado">
+
+            <div class="imagem-overlay"></div>
+
+            <div class="texto-imagem">
+
+            
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/js/index.js"></script>
+
+</body>
+</html>

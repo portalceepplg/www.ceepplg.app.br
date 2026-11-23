@@ -1,0 +1,105 @@
+
+<section class="gestao-pagina gestao-pagina-ativa">
+
+    <div class="gestao-cabecalho-pagina">
+        <span class="gestao-kicker">GERENCIAMENTO ACADÊMICO</span>
+        <h1>Cursos e matérias</h1>
+        <p>
+            Organize as disciplinas dos cursos técnicos e mantenha
+            a estrutura acadêmica do portal atualizada.
+        </p>
+    </div>
+
+
+    <!-- CADASTRAR DISCIPLINA -->
+    <form class="gestao-form-demo" id="formDisciplina">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <div>
+                <h2 id="tituloFormularioDisciplina">Adicionar matéria</h2>
+                <p>
+                    Selecione o curso e informe o nome da disciplina.
+                </p>
+            </div>
+        </div>
+
+        <input type="hidden" name="id_disciplina" id="idDisciplina">
+
+        <div class="gestao-form-grid">
+            <label for="cursoDisciplina">
+                Curso
+
+                <select name="id_curso" id="cursoDisciplina" required>
+                    <option value="">Carregando cursos...</option>
+                </select>
+            </label>
+
+            <label for="nomeDisciplina">
+                Nome da matéria
+
+                <input
+                    name="nome"
+                    id="nomeDisciplina"
+                    type="text"
+                    maxlength="150"
+                    required
+                    placeholder="Ex.: Banco de Dados">
+            </label>
+        </div>
+
+        <div class="gestao-acoes-form">
+            <button class="gestao-botao-principal" type="submit" id="btnSalvarDisciplina">
+                <i class="fa-solid fa-plus"></i>
+                Adicionar matéria
+            </button>
+
+            <button type="button" id="btnCancelarEdicao" hidden>
+                Cancelar edição
+            </button>
+        </div>
+    </form>
+
+    <!-- LISTAGEM -->
+    <div class="gestao-form-demo gestao-bloco-listagem">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone gestao-icone-listagem">
+                <i class="fa-solid fa-list-check"></i>
+            </div>
+
+            <div>
+                <h2>Matérias cadastradas</h2>
+                <p>
+                    Consulte e gerencie as disciplinas registradas no banco.
+                </p>
+            </div>
+        </div>
+
+        <div class="gestao-filtro-cursos">
+            <label for="filtroCurso">
+                <i class="fa-solid fa-filter"></i>
+                Filtrar por curso
+            </label>
+
+            <select id="filtroCurso">
+                <option value="todos">Todos os cursos</option>
+            </select>
+        </div>
+
+        <div class="gestao-lista-itens" id="listaDisciplinas">
+            <p>Carregando disciplinas cadastradas...</p>
+        </div>
+
+        <p class="gestao-lista-vazia" id="mensagemListaVazia" hidden>
+            <i class="fa-solid fa-folder-open"></i>
+            Nenhuma matéria encontrada para este curso.
+        </p>
+
+        <p id="mensagemDisciplinas" role="status" aria-live="polite"></p>
+    </div>
+
+</section>

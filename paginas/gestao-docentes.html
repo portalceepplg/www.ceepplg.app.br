@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão | Corpo Docente</title>
+</head>
+<body>
+
+<section class="gestao-pagina gestao-pagina-ativa">
+
+    <div class="gestao-cabecalho-pagina">
+        <span class="gestao-kicker">EQUIPE ESCOLAR</span>
+
+        <h1>Corpo docente</h1>
+
+        <p>
+            Gerencie os professores da instituição, organizando
+            cada profissional por área de conhecimento e matéria.
+        </p>
+    </div>
+
+    <!-- CADASTRO E EDIÇÃO DE PROFESSOR -->
+    <form class="gestao-form-demo" id="formProfessor">
+
+        <input type="hidden" name="id_professor" id="idProfessor">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <div>
+                <h2 id="tituloFormularioProfessor">Adicionar professor</h2>
+                <p>
+                    Informe o nome, a área de atuação e as disciplinas.
+                </p>
+            </div>
+        </div>
+
+        <div class="gestao-form-grid">
+
+            <label>
+                Área de conhecimento
+
+                <select name="id_area" id="areaProfessor" required>
+                    <option value="">Carregando áreas...</option>
+                </select>
+            </label>
+
+            <label class="campo-largo">
+                Nome do professor
+
+                <input
+                    name="nome"
+                    id="nomeProfessor"
+                    type="text"
+                    maxlength="150"
+                    required
+                    placeholder="Digite o nome completo do professor">
+            </label>
+
+            <label class="campo-largo">
+                Disciplinas
+
+                <textarea
+                    name="disciplinas"
+                    id="disciplinasProfessor"
+                    rows="3"
+                    required
+                    placeholder="Ex.: Língua Portuguesa, Língua Inglesa, Literatura"></textarea>
+
+                <small>
+                    Separe as disciplinas por vírgulas. Todas ficarão
+                    vinculadas à mesma área do professor.
+                </small>
+            </label>
+
+        </div>
+
+        <div class="gestao-acoes-form">
+
+            <button
+                class="gestao-botao-principal"
+                id="btnSalvarProfessor"
+                type="submit">
+
+                <i class="fa-solid fa-user-plus"></i>
+                Cadastrar professor
+            </button>
+
+            <button
+                type="button"
+                id="btnCancelarEdicaoProfessor"
+                hidden>
+
+                Cancelar edição
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- LISTAGEM REAL DOS PROFESSORES -->
+    <div class="gestao-form-demo gestao-bloco-listagem">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone gestao-icone-listagem">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+                <h2>Professores cadastrados</h2>
+                <p>
+                    Consulte, edite ou desative os registros da equipe escolar.
+                </p>
+            </div>
+        </div>
+
+        <div
+            class="gestao-lista-itens"
+            id="listaProfessores"
+            aria-live="polite">
+
+            Carregando professores...
+
+        </div>
+
+        <p class="gestao-lista-vazia" id="mensagemListaVazia" hidden>
+            <i class="fa-solid fa-users"></i>
+            Nenhum professor ativo encontrado.
+        </p>
+
+    </div>
+
+</section>
+</body>
+</html>

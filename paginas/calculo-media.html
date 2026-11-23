@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/rR9W2Zwj/Logotipo-ceep-em-azul-e-vermelho.png">
+    <title>Portal CEEPPLG | Cálculo de Média</title>
+</head>
+<body>
+
+    <div class="modal-sair" id="modalSair">
+        <div class="modal-sair-caixa">
+            <div class="modal-sair-icone">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+
+            <h2>Sair da conta?</h2>
+
+            <p>Tem certeza que deseja sair da sua conta?</p>
+
+            <div class="modal-sair-botoes">
+                <button type="button" id="cancelarSaida" class="btn-cancelar-saida">
+                    Cancelar
+                </button>
+
+                <button type="button" id="confirmarSaida" class="btn-confirmar-saida">
+                    Sair da conta
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-box">
+            <a href="/index.html" aria-label="Ir para o início">
+                <img src="https://i.ibb.co/vCK1m7DP/1786128151276.png" alt="Logo CEEP">
+            </a>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="menu">
+            <a href="/index.html">INÍCIO</a>
+            <a href="/paginas/cursos.html">CURSOS</a>
+            <a href="/paginas/corpodocente.html">CORPO DOCENTE</a>
+            <a href="/paginas/infraestrutura.html">INFRAESTRUTURA</a>
+        </nav>
+    </header>
+
+    <section class="area-aluno">
+
+        <aside class="aluno-sidebar">
+            <div class="sidebar-topo">
+                <h2>ÁREA DO ALUNO</h2>
+                <span class="linha-vermelha"></span>
+            </div>
+
+            <nav class="aluno-menu">
+
+                <a class="aluno-item" href="/php/area-aluno.php">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-house"></i>
+                    </span>
+                    <span class="item-texto">Painel Inicial</span>
+                </a>
+
+                <a class="aluno-item ativo" href="/paginas/calculo-media.html" aria-current="page">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-calculator"></i>
+                    </span>
+                    <span class="item-texto">Cálculo de Média</span>
+                </a>
+
+                <a class="aluno-item" href="/paginas/normas-regras.html">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-file-shield"></i>
+                    </span>
+                    <span class="item-texto">Normas e Regras</span>
+                </a>
+
+                <a class="aluno-item" href="/paginas/aprofundamento-cursos.html">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-book-open"></i>
+                    </span>
+                    <span class="item-texto">Aprofundamento<br class="desktop-only"> dos Cursos</span>
+                </a>
+
+                <a class="aluno-item" href="/paginas/recursos-aluno.html">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </span>
+                    <span class="item-texto">Recursos do Aluno</span>
+                </a>
+
+                <button class="aluno-item aluno-sair" id="btnSair" type="button">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </span>
+                    <span class="item-texto">Sair da conta</span>
+                </button>
+
+            </nav>
+        </aside>
+
+        <main class="aluno-conteudo">
+
+            <section class="pagina-aluno pagina-ativa" id="pagina-media">
+
+                <div class="pagina-cabecalho">
+                    <span class="mini-titulo">FERRAMENTA ACADÊMICA</span>
+
+                    <h1>Calculadora de Média</h1>
+
+                    <p>
+                        Calcule sua média de acordo com os critérios
+                        de avaliação do CEEPPLG.
+                    </p>
+                </div>
+
+                <div class="calculadora-aluno">
+
+                    <div class="tipo-media">
+                        <h2>
+                            Você realizou o Simulado ENEM nesse bimestre?
+                            <span>(Exclusivo para a 3ª série)</span>
+                        </h2>
+
+                        <div class="opcoes-simulado">
+                            <button type="button" id="comSimulado" class="opcao-media ativo">
+                                Sim
+                            </button>
+
+                            <button type="button" id="semSimulado" class="opcao-media">
+                                Não
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="notas">
+
+                        <div class="nota-item">
+                            <label for="av1">
+                                AV1
+                                <span>Avaliação Semanal</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="av1"
+                                min="0"
+                                max="10"
+                                step="0.1"
+                                placeholder="0,0"
+                            >
+                        </div>
+
+                        <div class="nota-item">
+                            <label for="av2">
+                                AV2
+                                <span>Avaliação Contínua</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="av2"
+                                min="0"
+                                max="10"
+                                step="0.1"
+                                placeholder="0,0"
+                            >
+                        </div>
+
+                        <div class="nota-item" id="campoAV3">
+                            <label for="av3">
+                                AV3
+                                <span>Simulado ENEM</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="av3"
+                                min="0"
+                                max="10"
+                                step="0.1"
+                                placeholder="0,0"
+                            >
+                        </div>
+
+                    </div>
+
+                    <button type="button" id="calcularMedia" class="btn-calcular">
+                        Calcular média
+                    </button>
+
+                    <div id="resultadoMedia" class="resultado-media">
+                        <span>Sua média</span>
+                        <strong id="valorMedia">—</strong>
+                    </div>
+
+                    <div class="formula-media">
+                        <h3>Como sua média é calculada?</h3>
+                        <p id="formulaTexto">(AV1 × 2 + AV2 × 3 + AV3 × 1) ÷ 6</p>
+                    </div>
+
+                    <div class="info-avaliacoes">
+                        <h3>Instrumentos de avaliação</h3>
+
+                        <div class="avaliacao">
+                            <strong>AV1 – Avaliação Semanal</strong>
+                            <p>
+                                10 a 12 questões objetivas, alinhadas à FGB e FTP,
+                                com devolutiva pedagógica obrigatória.
+                            </p>
+                        </div>
+
+                        <div class="avaliacao">
+                            <strong>AV2 – Avaliação Contínua</strong>
+                            <p>
+                                Considera produção, participação, critérios
+                                pedagógicos e atitudinais e acompanhamento permanente.
+                            </p>
+                        </div>
+
+                        <div class="avaliacao">
+                            <strong>AV3 – Simulado ENEM</strong>
+                            <p>
+                                Avaliação preparatória e formativa, com prioridade
+                                para a 3ª série nos 2º e 3º bimestres.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </section>
+
+    <footer class="footer">
+
+        <h5 class="footer-title">
+            <b>
+                Centro Estadual de Educação Profissional Professora
+                Lourdinha Guerra
+            </b>
+        </h5>
+
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <img
+                    src="https://plain-enam-prod-public.komododecks.com/202607/03/6Y5TdebZ5qeYzIaN8hDt/image.png"
+                    alt="Logo CEEP"
+                >
+            </div>
+
+            <div class="footer-info">
+
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=R.+Antônio+Lopes+Chaves,+2-90,+Nova+Parnamirim,+Parnamirim+-+RN"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <u>
+                            R. Antônio Lopes Chaves, 2-90
+                            <br>
+                            Nova Parnamirim
+                            <br>
+                            Parnamirim - RN
+                            <br>
+                            59150-570
+                        </u>
+                    </a>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+558436082669">
+                        <u>(84) 3608-2669</u>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-info">
+
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    07:30 às 17:00
+                    <br>
+                    de segunda à sexta
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <a href="mailto:ceeplourdinhaguerra@educar.rn.gov.br">
+                        <u>ceeplourdinhaguerra@educar.rn.gov.br</u>
+                    </a>
+                </div>
+
+                <div class="social">
+
+                    <a
+                        href="https://www.instagram.com/ceep_lourdinhaguerra?igsh=dzZ3cXQ1a3drbndr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src="https://i.ibb.co/CsMsX9mk/1783687086987.png" alt="Instagram">
+                    </a>
+
+                    <a
+                        href="https://www.facebook.com/ceepplg/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src="https://i.ibb.co/q2KyML8/1783687127159.png" alt="Facebook">
+                    </a>
+
+                    <a
+                        href="https://www.youtube.com/channel/UCQ6q8nbLAo3AnoDtHzivvXw"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src="https://i.ibb.co/m5P5g1wZ/1783687181479.png" alt="YouTube">
+                    </a>
+
+                    <a
+                        href="https://br.linkedin.com/company/ceep-professora-lourdinha-guerra"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src="https://i.ibb.co/C5gLdMbb/1783687219052.png" alt="LinkedIn">
+                    </a>
+
+                    <a
+                        href="https://wa.me/558494200492"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src="https://i.ibb.co/prJMvFpG/1791912662514.png" alt="WhatsApp">
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="copyright">
+            © 2026 CEEPPLG – Centro Estadual de Educação Profissional
+            Professora Lourdinha Guerra. Todos os direitos reservados.
+
+            <br>
+
+            Portal desenvolvido pelos alunos do Curso Técnico em Informática:
+            Anderson Ribeiro da Silva,
+            Juscelino Emanoel Nunes Galvão e
+            Maria Vitória Elias Silva.
+        </div>
+
+    </footer>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/rodape-dinamico.js"></script>
+</body>
+</html>

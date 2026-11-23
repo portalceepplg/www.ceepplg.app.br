@@ -1,0 +1,107 @@
+
+<section class="gestao-pagina gestao-pagina-ativa">
+
+    <div class="gestao-cabecalho-pagina">
+        <span class="gestao-kicker">EQUIPE ESCOLAR</span>
+
+        <h1>Acessos dos professores</h1>
+
+        <p>
+            Cadastre e gerencie os dados de acesso individual dos professores
+            à área restrita do portal.
+        </p>
+    </div>
+
+    <form class="gestao-form-demo" id="formAcessoProfessor">
+
+        <div class="gestao-titulo-secao">
+            <div>
+                <h2>Cadastrar acesso</h2>
+                <p>Selecione um professor já cadastrado no Corpo Docente.</p>
+            </div>
+        </div>
+
+        <div class="gestao-campo">
+            <label for="idProfessorAcesso">Professor</label>
+            <select
+                id="idProfessorAcesso"
+                name="id_professor"
+                required
+            >
+                <option value="">Carregando professores...</option>
+            </select>
+        </div>
+
+        <div class="gestao-campo">
+            <label for="matriculaAcessoProfessor">Matrícula</label>
+            <input
+                type="text"
+                id="matriculaAcessoProfessor"
+                name="matricula"
+                maxlength="30"
+                placeholder="Matrícula institucional"
+                required
+            >
+        </div>
+
+        <div class="gestao-campo">
+            <label for="emailAcessoProfessor">E-mail institucional</label>
+            <input
+                type="email"
+                id="emailAcessoProfessor"
+                name="email_institucional"
+                maxlength="150"
+                placeholder="E-mail institucional"
+                required
+            >
+        </div>
+
+        <div class="gestao-campo">
+            <label for="senhaAcessoProfessor">Senha inicial</label>
+            <input
+                type="password"
+                id="senhaAcessoProfessor"
+                name="senha"
+                minlength="8"
+                placeholder="Defina uma senha inicial"
+                required
+                autocomplete="new-password"
+            >
+        </div>
+
+        <div class="gestao-form-acoes">
+            <button type="submit" class="gestao-btn-principal">
+                Cadastrar acesso
+            </button>
+
+            <button
+                type="reset"
+                class="gestao-btn-secundario"
+                id="limparAcessoProfessor"
+            >
+                Limpar
+            </button>
+        </div>
+
+    </form>
+
+    <div class="gestao-form-demo gestao-bloco-listagem">
+
+        <div class="gestao-titulo-secao">
+            <div>
+                <h2>Professores com acesso</h2>
+                <p>Consulte os acessos cadastrados.</p>
+            </div>
+        </div>
+
+        <div id="listaAcessosProfessores">
+            <p>Carregando acessos...</p>
+        </div>
+
+        <p id="mensagemAcessosVazios" hidden>
+            Nenhum acesso de professor cadastrado.
+        </p>
+
+    </div>
+
+</section>

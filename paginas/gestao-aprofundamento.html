@@ -1,0 +1,236 @@
+<section class="gestao-pagina gestao-pagina-ativa">
+
+    <div class="gestao-cabecalho-pagina">
+        <span class="gestao-kicker">ÁREA DO ALUNO</span>
+
+        <h1>
+            <i class="fa-solid fa-book-open"></i>
+            Aprofundamento dos Cursos
+        </h1>
+
+        <p>
+            Organize e disponibilize materiais complementares em PDF
+            de acordo com cada curso técnico.
+        </p>
+    </div>
+
+    <form
+        class="gestao-form-demo"
+        id="formGradeCurricular"
+        action="../php/salvar-grade-curricular.php"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <!-- IDENTIFICA O MATERIAL DURANTE A SUBSTITUIÇÃO -->
+        <input type="hidden" name="id_grade" value="">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone">
+                <i class="fa-solid fa-file-circle-plus"></i>
+            </div>
+
+            <div>
+                <h2>Adicionar material</h2>
+                <p>
+                    Informe o curso, as séries atendidas, o título
+                    e o arquivo que será disponibilizado.
+                </p>
+            </div>
+        </div>
+
+        <div class="gestao-form-grid">
+
+            <!-- CURSO -->
+            <label>
+                <span>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Curso de destino
+                </span>
+
+                <select name="curso" required>
+                    <option value="">Selecione o curso</option>
+                    <option value="informatica">Informática</option>
+                    <option value="redes">Redes de Computadores</option>
+                </select>
+            </label>
+
+            <!-- SÉRIES -->
+            <fieldset class="campo-largo">
+                <legend>
+                    <i class="fa-solid fa-layer-group"></i>
+                    Séries atendidas
+                </legend>
+
+                <p>Selecione uma ou mais séries para este material.</p>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="series[]"
+                        value="1"
+                    >
+                    1ª série
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="series[]"
+                        value="2"
+                    >
+                    2ª série
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="series[]"
+                        value="3"
+                    >
+                    3ª série
+                </label>
+            </fieldset>
+
+            <!-- TÍTULO -->
+            <label>
+                <span>
+                    <i class="fa-solid fa-heading"></i>
+                    Título do material
+                </span>
+
+                <input
+                    type="text"
+                    name="titulo"
+                    required
+                    maxlength="150"
+                    placeholder="Ex.: Guia de estudos"
+                >
+            </label>
+
+            <!-- PDF -->
+            <label class="campo-largo">
+                <span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Arquivo PDF
+                </span>
+
+                <input
+    type="file"
+    name="pdf"
+    accept="application/pdf"
+    required
+    data-preview="aprofundamento"
+    class="gestao-input-arquivo"
+>
+
+                <small data-preview-output="aprofundamento">
+                    Nenhum PDF selecionado.
+                </small>
+            </label>
+
+        </div>
+
+        <div class="gestao-aviso-form">
+            <i class="fa-solid fa-circle-info"></i>
+
+            <p>
+                O material será cadastrado uma única vez e ficará
+                disponível para todas as séries selecionadas.
+            </p>
+        </div>
+
+        <div class="gestao-acoes-form">
+            <button class="gestao-botao-principal" type="submit">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Adicionar material
+            </button>
+        </div>
+
+    </form>
+
+    <!-- LISTAGEM DOS MATERIAIS -->
+    <div class="gestao-form-demo gestao-bloco-listagem">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone">
+                <i class="fa-solid fa-folder-open"></i>
+            </div>
+
+            <div>
+                <h2>Materiais cadastrados</h2>
+                <p>
+                    Materiais organizados conforme o curso técnico.
+                </p>
+            </div>
+        </div>
+
+        <div id="listaGradesGestao">
+            <p>Carregando materiais cadastrados...</p>
+        </div>
+
+        <!-- VISUALIZADOR DO PDF -->
+        <section id="visualizadorGradeGestao" hidden>
+
+            <h3 id="tituloGradeGestao">
+                Visualização do material
+            </h3>
+
+            <iframe
+                id="iframeGradeGestao"
+                title="Visualização do material"
+                width="100%"
+                height="700"
+                style="border: 0;">
+            </iframe>
+
+        </section>
+
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO DE EXCLUSÃO -->
+    <div
+        class="gestao-modal-exclusao-grade"
+        id="modalExcluirGrade"
+        hidden
+    >
+
+        <div
+            class="gestao-modal-exclusao-conteudo"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloModalExcluirGrade"
+        >
+
+            <div class="gestao-modal-exclusao-icone">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <h2 id="tituloModalExcluirGrade">
+                Excluir material?
+            </h2>
+
+            <p>
+                Deseja excluir definitivamente este material?
+                O PDF também será removido do banco de dados.
+                Esta ação não poderá ser desfeita.
+            </p>
+
+            <div class="gestao-modal-exclusao-acoes">
+
+                <button type="button" id="cancelarExclusaoGrade">
+                    Cancelar
+                </button>
+
+                <button type="button" id="confirmarExclusaoGrade">
+                    <i class="fa-solid fa-trash"></i>
+                    Excluir definitivamente
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portal CEEPPLG | Área da Gestão</title>
+
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gestao.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="pagina-gestao">
+
+
+    <header class="header">
+    <a class="logo-box" href="/index.html" aria-label="Página inicial">
+        <img src="https://i.ibb.co/vCK1m7DP/1786128151276.png"
+             alt="Logo CEEPPLG">
+    </a>
+
+    <button class="menu-toggle" id="gestaoMenuToggle"
+            type="button" aria-label="Abrir menu"
+            aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="menu">
+        <a href="/index.html">INÍCIO</a>
+        <a href="/paginas/cursos.html">CURSOS</a>
+        <a href="/paginas/corpodocente.html">CORPO DOCENTE</a>
+        <a href="/paginas/infraestrutura.html">INFRAESTRUTURA</a>
+    </nav>
+</header>
+
+
+<div class="gestao-layout">
+
+    <aside class="gestao-sidebar" id="gestaoSidebar">
+
+        <div class="gestao-sidebar-topo">
+            <span class="gestao-kicker">PORTAL CEEPPLG</span>
+            <h2>Área da Gestão</h2>
+            <span class="gestao-linha-vermelha"></span>
+        </div>
+
+        <nav class="gestao-menu">
+
+            <button class="gestao-item ativo" type="button"
+                    data-arquivo="painel">
+                <i class="fa-solid fa-house"></i>
+                <span>Painel inicial</span>
+            </button>
+
+            <button class="gestao-item" type="button"
+                    data-arquivo="institucional">
+                <i class="fa-solid fa-building"></i>
+                <span>Institucional e rodapé</span>
+            </button>
+
+            <button class="gestao-item" type="button"
+                    data-arquivo="cursos">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Cursos e matérias</span>
+            </button>
+
+            <button class="gestao-item" type="button"
+                    data-arquivo="docentes">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Corpo docente</span>
+            </button>
+
+            <button class="gestao-item" type="button"
+        data-arquivo="acessosProfessores">
+    <i class="fa-solid fa-user-lock"></i>
+    <span>Acessos dos professores</span>
+</button>
+
+
+            <button class="gestao-item" type="button"
+                    data-arquivo="infraestrutura">
+                <i class="fa-solid fa-school"></i>
+                <span>Infraestrutura</span>
+            </button>
+            
+
+            <div class="gestao-grupo">
+
+                <button class="gestao-item gestao-grupo-titulo"
+                        type="button" aria-expanded="true">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Editar Área do Aluno</span>
+                    <i class="fa-solid fa-chevron-down seta-grupo"></i>
+                </button>
+
+                <div class="gestao-submenu">
+
+                    <button class="gestao-subitem" type="button"
+                            data-arquivo="normas">
+                        <i class="fa-solid fa-file-shield"></i>
+                        <span>Normas e Regras</span>
+                    </button>
+
+                    <button class="gestao-subitem" type="button"
+                            data-arquivo="aprofundamento">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Aprofundamento dos Cursos</span>
+                    </button>
+
+                    <button class="gestao-subitem" type="button"
+                            data-arquivo="recursos">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span>Recursos do Aluno</span>
+                    </button>
+
+                </div>
+            </div>
+
+            
+            <a class="gestao-item gestao-link-aluno"
+                href="/php/visualizar-area-aluno.php">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>Acessar Área do Aluno</span>
+            </a>
+
+           <a class="gestao-item gestao-link-aluno"
+   href="/php/area-prof.php">
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    <span>Acessar Área do Professor</span>
+</a>
+
+            <button class="gestao-item gestao-sair"
+                    type="button" id="btnSairGestao">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Sair da conta</span>
+            </button>
+
+        </nav>
+
+        
+
+    </aside>
+
+    <main class="gestao-conteudo" id="gestaoConteudo">
+
+        <section class="gestao-pagina gestao-pagina-ativa"
+                 id="gestao-inicio">
+
+            <!-- CABEÇALHO DE BOAS-VINDAS -->
+            <div class="gestao-boas-vindas">
+
+                <div>
+                    <span class="gestao-kicker">PAINEL INICIAL</span>
+
+                    <h1>Área da Gestão</h1>
+
+                    <p>
+                        Organize as informações do portal e acompanhe
+                        as atividades de atualização do ambiente escolar.
+                    </p>
+                </div>
+
+                <div class="gestao-boas-icone" aria-hidden="true">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+
+            </div>
+
+            <!-- ORIENTAÇÕES -->
+            <section class="gestao-dicas">
+
+                <div class="gestao-titulo-secao">
+
+                    <div class="gestao-titulo-icone">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <div>
+                        <h2>Orientações para a gestão</h2>
+                        <p>
+                            Boas práticas para manter o portal organizado
+                            e facilitar o acesso às informações.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="gestao-mensagens">
+
+                    <article class="gestao-mensagem-card">
+
+                        <div class="gestao-mensagem-icone conselho">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+
+                        <div class="gestao-mensagem-texto">
+
+                            <span class="gestao-mensagem-etiqueta">
+                                ENSINO E APRENDIZAGEM
+                            </span>
+
+                            <h3>Valorize o desenvolvimento dos estudantes</h3>
+
+                            <p>
+                                Reconheça os avanços de cada estudante.
+                                O incentivo e o acompanhamento contribuem
+                                para uma aprendizagem mais significativa.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <article class="gestao-mensagem-card">
+
+                        <div class="gestao-mensagem-icone lembrete">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+
+                        <div class="gestao-mensagem-texto">
+
+                            <span class="gestao-mensagem-etiqueta">
+                                ORGANIZAÇÃO DO PORTAL
+                            </span>
+
+                            <h3>Mantenha os conteúdos atualizados</h3>
+
+                            <p>
+                                Confira os documentos, as matérias,
+                                as informações institucionais e os
+                                materiais disponibilizados aos alunos.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- MENSAGEM DE REFLEXÃO -->
+            <section class="gestao-motivacionais">
+
+                <div class="gestao-titulo-secao">
+
+                    <div class="gestao-titulo-icone motivacao">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+
+                    <div>
+                        <h2>Educação que transforma</h2>
+                        <p>
+                            Uma lembrança do propósito que une
+                            toda a comunidade escolar.
+                        </p>
+                    </div>
+
+                </div>
+
+                <article class="gestao-motivacional-card">
+
+                    <div class="gestao-motivacional-icone">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+
+                    <div>
+                        <h3>Conhecimento abre caminhos.</h3>
+
+                        <p>
+                            Cada aula, orientação e oportunidade de
+                            aprendizagem ajuda a construir novos futuros.
+                            Com compromisso, respeito e colaboração,
+                            a comunidade escolar transforma desafios
+                            em possibilidades.
+                        </p>
+
+                        <span class="gestao-mensagem-etiqueta">
+                            COMPROMISSO COM A EDUCAÇÃO
+                        </span>
+                    </div>
+
+                </article>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- MODAL PERSONALIZADO DE SAÍDA -->
+<div class="modal-sair" id="modalSair"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="tituloModalSair"
+     aria-describedby="textoModalSair"
+     hidden>
+
+    <div class="modal-sair-caixa">
+
+        <div class="modal-sair-icone">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+
+        <h2 id="tituloModalSair">Sair da conta?</h2>
+
+        <p id="textoModalSair">
+            Tem certeza que deseja sair da sua conta?
+        </p>
+
+        <div class="modal-sair-botoes">
+
+            <button type="button" id="cancelarSaida"
+                    class="btn-cancelar-saida">
+                Cancelar
+            </button>
+
+            <button type="button" id="confirmarSaida"
+                    class="btn-confirmar-saida">
+                Sair da conta
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="gestao-toast" id="gestaoToast"
+     role="status" aria-live="polite"></div>
+
+     <script src="/js/index.js"></script>
+<script src="/js/gestao.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/rR9W2Zwj/Logotipo-ceep-em-azul-e-vermelho.png">
+
+    <title>Portal CEEPPLG | Infraestrutura</title>
+
+    <style>
+        .infra-img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .infra-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            cursor: zoom-in;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .infra-carousel-controles {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            pointer-events: none;
+        }
+
+        .infra-carousel-seta {
+            width: 34px;
+            height: 34px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(24, 45, 90, .78);
+            color: #fff;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            pointer-events: auto;
+            transition: background .2s, transform .2s;
+        }
+
+        .infra-carousel-seta:hover {
+            background: #ff3030;
+            transform: scale(1.06);
+        }
+
+        .infra-carousel-pontos {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+        }
+
+        .infra-carousel-ponto {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            background: rgba(255,255,255,.55);
+            cursor: pointer;
+        }
+
+        .infra-carousel-ponto.ativo {
+            background: #ff3030;
+            border-color: #fff;
+            transform: scale(1.15);
+        }
+
+        .infra-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px 20px;
+            background: rgba(0, 0, 0, 0.92);
+        }
+
+        .infra-lightbox[hidden] {
+            display: none !important;
+        }
+
+        .infra-lightbox img {
+            display: block;
+            max-width: 95vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .infra-lightbox-fechar {
+            position: absolute;
+            top: 12px;
+            right: 22px;
+            z-index: 2;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 42px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .infra-lightbox-fechar:hover {
+            color: #ff3030;
+        }
+
+        @media (max-width: 600px) {
+            .infra-lightbox {
+                padding: 50px 10px 15px;
+            }
+
+            .infra-lightbox img {
+                max-width: 96vw;
+                max-height: 85vh;
+            }
+        }
+    </style>
+</head>
+
+<body class="pagina-com-header">
+
+    <header class="header">
+        <div class="logo-box">
+            <img src="https://i.ibb.co/vCK1m7DP/1786128151276.png" alt="Logo CEEP">
+        </div>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="menu">
+            <a href="/index.html">INÍCIO</a>
+            <a href="/paginas/cursos.html">CURSOS</a>
+            <a href="/paginas/corpodocente.html">CORPO DOCENTE</a>
+            <a href="/php/continuar.php">ENTRAR</a>
+        </nav>
+    </header>
+
+    <main class="main2">
+
+        <div class="main2-header">
+            <div class="main2-tag">
+                <span></span>
+                <p>CONHEÇA NOSSA INFRAESTRUTURA</p>
+            </div>
+
+            <h2>Estrutura do CEEPPLG</h2>
+
+            <p>
+                Conheça os ambientes e espaços que compõem a estrutura
+                do Centro Estadual de Educação Profissional Professora
+                Lourdinha Guerra.
+            </p>
+        </div>
+
+        <section class="infra-grid" id="listaInfraestruturaPublica" aria-live="polite">
+            <p id="mensagemInfraestrutura">Carregando ambientes da escola...</p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <h5 class="footer-title">
+            <b>
+                Centro Estadual de Educação Profissional Professora
+                Lourdinha Guerra
+            </b>
+        </h5>
+
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <img
+                    src="https://plain-enam-prod-public.komododecks.com/202607/03/6Y5TdebZ5qeYzIaN8hDt/image.png"
+                    alt="Logo CEEP">
+            </div>
+
+            <div class="footer-info">
+
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=R.+Antônio+Lopes+Chaves,+2-90,+Nova+Parnamirim,+Parnamirim+-+RN"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <u>
+                            R. Antônio Lopes Chaves, 2-90
+                            <br>
+                            Nova Parnamirim
+                            <br>
+                            Parnamirim - RN
+                            <br>
+                            59150-570
+                        </u>
+                    </a>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+558436082669">
+                        <u>(84) 3608-2669</u>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-info">
+
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    07:30 às 17:00
+                    <br>
+                    de segunda à sexta
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:ceeplourdinhaguerra@educar.rn.gov.br">
+                        <u>ceeplourdinhaguerra@educar.rn.gov.br</u>
+                    </a>
+                </div>
+
+                <div class="social">
+
+                    <a
+                        href="https://www.instagram.com/ceep_lourdinhaguerra?igsh=dzZ3cXQ1a3drbndr"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/CsMsX9mk/1783687086987.png" alt="Instagram">
+                    </a>
+
+                    <a
+                        href="https://www.facebook.com/ceepplg/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/q2KyML8/1783687127159.png" alt="Facebook">
+                    </a>
+
+                    <a
+                        href="https://www.youtube.com/channel/UCQ6q8nbLAo3AnoDtHzivvXw"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/m5P5g1wZ/1783687181479.png" alt="YouTube">
+                    </a>
+
+                    <a
+                        href="https://br.linkedin.com/company/ceep-professora-lourdinha-guerra"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/C5gLdMbb/1783687219052.png" alt="LinkedIn">
+                    </a>
+
+                    <a
+                        href="https://wa.me/558494200492"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/prJMvFpG/1791912662514.png" alt="WhatsApp">
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="copyright">
+            © 2026 CEEPPLG – Centro Estadual de Educação Profissional
+            Professora Lourdinha Guerra. Todos os direitos reservados.
+
+            <br>
+
+            Portal desenvolvido pelos alunos do Curso Técnico em Informática:
+
+            Anderson Ribeiro da Silva,
+            Juscelino Emanoel Nunes Galvão e
+            Maria Vitória Elias Silva.
+        </div>
+
+    </footer>
+
+    <!-- JANELA DE AMPLIAÇÃO DAS FOTOS -->
+    <div
+        class="infra-lightbox"
+        id="infraLightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Foto ampliada"
+        hidden>
+
+        <button
+            type="button"
+            class="infra-lightbox-fechar"
+            id="fecharInfraLightbox"
+            aria-label="Fechar foto ampliada">
+            &times;
+        </button>
+
+        <img id="infraLightboxImagem" src="" alt="">
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+
+        const lista = document.getElementById('listaInfraestruturaPublica');
+        const mensagem = document.getElementById('mensagemInfraestrutura');
+
+        const lightbox = document.getElementById('infraLightbox');
+        const imagemAmpliada = document.getElementById('infraLightboxImagem');
+        const botaoFechar = document.getElementById('fecharInfraLightbox');
+
+        function fecharImagem() {
+            lightbox.hidden = true;
+            imagemAmpliada.removeAttribute('src');
+            document.body.style.overflow = '';
+        }
+
+        function abrirImagem(imagem) {
+            imagemAmpliada.src = imagem.src;
+            imagemAmpliada.alt = imagem.alt;
+            lightbox.hidden = false;
+            document.body.style.overflow = 'hidden';
+            botaoFechar.focus();
+        }
+
+        botaoFechar.addEventListener('click', fecharImagem);
+
+        lightbox.addEventListener('click', evento => {
+            if (evento.target === lightbox) {
+                fecharImagem();
+            }
+        });
+
+        document.addEventListener('keydown', evento => {
+            if (evento.key === 'Escape' && !lightbox.hidden) {
+                fecharImagem();
+            }
+        });
+
+        try {
+
+            const resposta = await fetch('/php/listar-infraestrutura-publica.php');
+
+            if (!resposta.ok) {
+                throw new Error('Erro HTTP ' + resposta.status);
+            }
+
+            const dados = await resposta.json();
+
+            if (!dados.sucesso || !Array.isArray(dados.ambientes)) {
+                throw new Error('Resposta inválida do servidor.');
+            }
+
+            lista.replaceChildren();
+
+            if (dados.ambientes.length === 0) {
+                mensagem.textContent = 'Nenhum ambiente cadastrado no momento.';
+                lista.appendChild(mensagem);
+                return;
+            }
+
+            dados.ambientes.forEach(ambiente => {
+
+                const cartao = document.createElement('article');
+                cartao.className = 'infra-card';
+
+                const areaImagem = document.createElement('div');
+                areaImagem.className = 'infra-img';
+
+                // Aceita a lista "imagens" e mantém compatibilidade
+                // com o campo antigo "imagem".
+                const imagensAmbiente = Array.isArray(ambiente.imagens)
+                    ? ambiente.imagens
+                    : [ambiente.imagem, ambiente.imagem2 || ambiente.foto2];
+
+                const caminhosImagens = imagensAmbiente
+                    .filter(Boolean)
+                    .map(item => typeof item === 'string' ? item.trim() : '')
+                    .filter(Boolean);
+
+                if (caminhosImagens.length) {
+
+                    let indiceAtual = 0;
+
+                    const imagem = document.createElement('img');
+
+                    imagem.alt = ambiente.nome || 'Ambiente da escola';
+                    imagem.loading = 'lazy';
+                    imagem.tabIndex = 0;
+                    imagem.setAttribute('role', 'button');
+                    imagem.setAttribute('aria-label', 'Ampliar foto: ' + imagem.alt);
+
+                    function normalizarCaminho(caminho) {
+                        return /^https?:\/\//i.test(caminho)
+                            ? caminho
+                            : '/' + caminho.replace(/^\/+/, '');
+                    }
+
+                    const pontos = document.createElement('div');
+                    pontos.className = 'infra-carousel-pontos';
+
+                    function mostrarImagem(indice) {
+
+                        indiceAtual = (indice + caminhosImagens.length) % caminhosImagens.length;
+
+                        imagem.src = normalizarCaminho(caminhosImagens[indiceAtual]);
+
+                        imagem.setAttribute(
+                            'aria-label',
+                            'Ampliar foto ' + (indiceAtual + 1) +
+                            ' de ' + caminhosImagens.length +
+                            ': ' + (ambiente.nome || 'Ambiente da escola')
+                        );
+
+                        pontos.querySelectorAll('button').forEach((ponto, i) => {
+                            ponto.classList.toggle('ativo', i === indiceAtual);
+                            ponto.setAttribute(
+                                'aria-current',
+                                i === indiceAtual ? 'true' : 'false'
+                            );
+                        });
+                    }
+
+                    imagem.addEventListener('click', () => abrirImagem(imagem));
+
+                    imagem.addEventListener('keydown', evento => {
+                        if (evento.key === 'Enter' || evento.key === ' ') {
+                            evento.preventDefault();
+                            abrirImagem(imagem);
+                        }
+                    });
+
+                    imagem.addEventListener('error', () => {
+                        console.error('Não foi possível carregar a imagem:', imagem.src);
+                        areaImagem.hidden = true;
+                    });
+
+                    areaImagem.appendChild(imagem);
+
+                    if (caminhosImagens.length > 1) {
+
+                        const controles = document.createElement('div');
+                        controles.className = 'infra-carousel-controles';
+
+                        const anterior = document.createElement('button');
+                        anterior.type = 'button';
+                        anterior.className = 'infra-carousel-seta';
+                        anterior.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+                        anterior.setAttribute('aria-label', 'Foto anterior');
+
+                        anterior.addEventListener('click', () => {
+                            mostrarImagem(indiceAtual - 1);
+                        });
+
+                        const proxima = document.createElement('button');
+                        proxima.type = 'button';
+                        proxima.className = 'infra-carousel-seta';
+                        proxima.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+                        proxima.setAttribute('aria-label', 'Próxima foto');
+
+                        proxima.addEventListener('click', () => {
+                            mostrarImagem(indiceAtual + 1);
+                        });
+
+                        controles.append(anterior, proxima);
+                        areaImagem.appendChild(controles);
+
+                        caminhosImagens.forEach((_, indice) => {
+
+                            const ponto = document.createElement('button');
+
+                            ponto.type = 'button';
+                            ponto.className = 'infra-carousel-ponto';
+
+                            ponto.setAttribute(
+                                'aria-label',
+                                'Mostrar foto ' + (indice + 1)
+                            );
+
+                            ponto.addEventListener('click', () => {
+                                mostrarImagem(indice);
+                            });
+
+                            pontos.appendChild(ponto);
+                        });
+
+                        areaImagem.appendChild(pontos);
+
+                        // Navegação por deslize no celular.
+                        let inicioToqueX = 0;
+
+                        areaImagem.addEventListener('touchstart', evento => {
+                            inicioToqueX = evento.changedTouches[0].screenX;
+                        }, { passive: true });
+
+                        areaImagem.addEventListener('touchend', evento => {
+
+                            const diferenca =
+                                evento.changedTouches[0].screenX - inicioToqueX;
+
+                            if (Math.abs(diferenca) > 40) {
+                                mostrarImagem(
+                                    indiceAtual + (diferenca < 0 ? 1 : -1)
+                                );
+                            }
+
+                        }, { passive: true });
+                    }
+
+                    mostrarImagem(0);
+
+                } else {
+                    areaImagem.hidden = true;
+                }
+
+                const informacoes = document.createElement('div');
+                informacoes.className = 'infra-info';
+
+                const titulo = document.createElement('h2');
+                titulo.textContent = ambiente.nome || 'Ambiente da escola';
+
+                const linha = document.createElement('span');
+                linha.className = 'linha-vermelha';
+
+                const descricao = document.createElement('p');
+                descricao.textContent = ambiente.descricao || '';
+
+                informacoes.append(titulo, linha, descricao);
+
+                cartao.append(areaImagem, informacoes);
+
+                lista.appendChild(cartao);
+            });
+
+        } catch (erro) {
+
+            console.error('Erro ao carregar infraestrutura:', erro);
+
+            mensagem.textContent =
+                'Não foi possível carregar os ambientes. Tente novamente mais tarde.';
+        }
+    });
+    </script>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/rodape-dinamico.js"></script>
+
+</body>
+</html>

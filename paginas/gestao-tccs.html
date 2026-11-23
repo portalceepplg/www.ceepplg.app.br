@@ -1,0 +1,106 @@
+<!-- FORMULÁRIO DE CADASTRO DE SISTEMAS -->
+<form
+    class="gestao-form-demo"
+    id="formTCC"
+    enctype="multipart/form-data"
+>
+    <h2 id="tituloFormularioTCC">Adicionar sistema de TCC</h2>
+
+    <input type="hidden" name="id_tcc" id="idTCC">
+
+    <div class="gestao-form-grid">
+
+        <label>
+            Título do sistema
+            <input
+                type="text"
+                name="titulo"
+                id="tituloTCC"
+                placeholder="Nome do projeto"
+                maxlength="150"
+                required
+            >
+        </label>
+
+        <label>
+            Domínio público do sistema
+            <input
+                type="url"
+                name="endereco"
+                id="enderecoTCC"
+                placeholder="https://exemplo.com.br"
+                maxlength="2048"
+                required
+            >
+            <small>
+                Informe o endereço público para acessar o sistema.
+            </small>
+        </label>
+
+        <label class="campo-largo">
+            Descrição do sistema
+            <textarea
+                name="descricao"
+                id="descricaoTCC"
+                rows="4"
+                placeholder="Descreva brevemente o que o sistema faz."
+            ></textarea>
+        </label>
+
+        <label class="campo-largo">
+            Logo do sistema
+            <input
+                type="file"
+                name="logo"
+                id="logoTCC"
+                accept="image/png,image/jpeg,image/webp,image/gif"
+                data-preview="tcc"
+                class="gestao-input-arquivo"
+            >
+            <small data-preview-output="tcc">
+                Nenhuma logo selecionada.
+            </small>
+        </label>
+
+    </div>
+
+    <div
+        id="mensagemTCC"
+        class="gestao-professor-detalhe"
+        role="status"
+        hidden
+    ></div>
+
+    <button
+        class="gestao-botao-principal"
+        type="submit"
+        id="btnSalvarTCC"
+    >
+        <i class="fa-solid fa-plus"></i>
+        Adicionar sistema
+    </button>
+
+    <button
+        class="gestao-botao-principal"
+        type="button"
+        id="btnCancelarTCC"
+        hidden
+    >
+        Cancelar edição
+    </button>
+
+</form>
+<!-- HISTÓRICO DE SISTEMAS CADASTRADOS -->
+<section class="gestao-lista-secao">
+
+    <h2>Sistemas cadastrados</h2>
+
+    <p>
+        Gerencie os sistemas de TCC publicados na Área do Aluno.
+    </p>
+
+    <div id="listaTCCs">
+        Carregando sistemas...
+    </div>
+
+</section>

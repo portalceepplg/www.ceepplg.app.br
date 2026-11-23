@@ -1,0 +1,182 @@
+
+<section class="gestao-pagina gestao-pagina-ativa">
+
+    <div class="gestao-cabecalho-pagina">
+        <span class="gestao-kicker">ÁREA DO ALUNO</span>
+
+        <h1>
+            <i class="fa-solid fa-scale-balanced"></i>
+            Normas e Regras
+        </h1>
+
+        <p>
+            Gerencie o Regimento Escolar disponibilizado aos estudantes
+            na Área do Aluno.
+        </p>
+    </div>
+
+    <form
+        class="gestao-form-demo"
+        id="formNormas"
+        enctype="multipart/form-data"
+    >
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone">
+                <i class="fa-solid fa-file-pen"></i>
+            </div>
+
+            <div>
+                <h2>Atualizar documento</h2>
+                <p>
+                    Edite as informações ou selecione um novo PDF.
+                    O envio do arquivo é opcional quando já existe um documento cadastrado.
+                </p>
+            </div>
+        </div>
+
+        <div class="gestao-form-grid">
+
+            <label class="campo-largo">
+                <span>
+                    <i class="fa-solid fa-heading"></i>
+                    Título do documento
+                </span>
+
+                <input
+                    type="text"
+                    id="normasTitulo"
+                    name="titulo"
+                    maxlength="150"
+                    placeholder="Ex.: Regimento Escolar"
+                    required
+                >
+            </label>
+
+            <label>
+                <span>
+                    <i class="fa-solid fa-calendar"></i>
+                    Ano da versão
+                </span>
+
+                <input
+                    type="number"
+                    id="normasAno"
+                    name="ano_versao"
+                    min="1901"
+                    max="2155"
+                    placeholder="Ex.: 2025"
+                    required
+                >
+            </label>
+
+            <label>
+                <span>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    Situação do documento
+                </span>
+
+                <select
+                    id="normasProvisoria"
+                    name="provisoria"
+                    required
+                >
+                    <option value="1">Provisório — confirmar versão atual</option>
+                    <option value="0">Definitivo — versão confirmada</option>
+                </select>
+            </label>
+
+            <label class="campo-largo">
+                <span>
+                    <i class="fa-solid fa-align-left"></i>
+                    Descrição e observações
+                </span>
+
+                <textarea
+                    id="normasDescricao"
+                    name="descricao"
+                    rows="4"
+                    placeholder="Informe detalhes sobre a versão e observações para os estudantes."
+                ></textarea>
+            </label>
+
+            <label class="campo-largo">
+                <span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Substituir arquivo PDF (opcional)
+                </span>
+
+                <input
+                    type="file"
+                    id="normasPdf"
+                    name="pdf"
+                    accept=".pdf,application/pdf"
+                    data-preview="normas"
+                    class="gestao-input-arquivo"
+                >
+
+                <small data-preview-output="normas">
+                    Nenhum arquivo novo selecionado.
+                </small>
+            </label>
+
+        </div>
+
+        <div class="gestao-aviso-form">
+            <i class="fa-solid fa-circle-info"></i>
+
+            <p>
+                Se você não selecionar um novo PDF, o arquivo atual será mantido.
+                Marque o documento como definitivo somente depois de confirmar
+                que a versão está correta e atualizada com a instituição.
+            </p>
+        </div>
+
+        <div
+            id="normasMensagem"
+            role="status"
+            aria-live="polite"
+            hidden
+        ></div>
+
+        <div class="gestao-acoes-form">
+            <button class="gestao-botao-principal" type="submit">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Salvar alterações
+            </button>
+        </div>
+
+    </form>
+
+    <div class="gestao-form-demo gestao-bloco-listagem">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone">
+                <i class="fa-solid fa-folder-open"></i>
+            </div>
+
+            <div>
+                <h2>Documento atual</h2>
+                <p>Informações do Regimento Escolar cadastrado no sistema.</p>
+            </div>
+        </div>
+
+        <div id="normasDocumentoAtual" aria-live="polite">
+
+            <div class="gestao-lista-vazia">
+                <div class="gestao-titulo-icone">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+
+                <h3>Carregando documento...</h3>
+
+                <p>
+                    As informações serão exibidas após a conexão com o banco de dados.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal CEEPPLG | Área da Gestão</title>
+
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gestao.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="pagina-gestao">
+
+
+<header class="header">
+    <a class="logo-box" href="/index.html" aria-label="Página inicial"></a>
+        <img src="https://i.ibb.co/vCK1m7DP/1786128151276.png"
+             alt="Logo CEEPPLG">
+    </a>
+
+    <button class="menu-toggle" id="gestaoMenuToggle"
+            type="button" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="menu">
+    <a href="/index.html">INÍCIO</a>
+    <a href="/paginas/cursos.html">CURSOS</a>
+    <a href="/paginas/corpodocente.html">CORPO DOCENTE</a>
+    <a href="/paginas/infraestrutura.html">INFRAESTRUTURA</a>
+    </nav>
+</header>
+
+<div class="gestao-layout">
+
+    <aside class="gestao-sidebar" id="gestaoSidebar">
+        <div class="gestao-sidebar-topo">
+            <span class="gestao-kicker">PORTAL CEEPPLG</span>
+            <h2>Área da Gestão</h2>
+            <span class="gestao-linha-vermelha"></span>
+        </div>
+
+        <nav class="gestao-menu">
+            <button class="gestao-item ativo" type="button"
+                    data-arquivo="painel">
+                <i class="fa-solid fa-house"></i>
+                <span>Painel inicial</span>
+            </button>
+
+            <button class="gestao-item" type="button"
+                    data-arquivo="institucional">
+                <i class="fa-solid fa-building"></i>
+                <span>Institucional e rodapé</span>
+            </button>
+
+            <button class="gestao-item" type="button"
+                    data-arquivo="cursos">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Cursos e matérias</span>
+            </button>
+
+            <button class="gestao-item" type="button"
+                    data-arquivo="docentes">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Corpo docente</span>
+            </button>
+
+            <button class="gestao-item" type="button"
+                    data-arquivo="infraestrutura">
+                <i class="fa-solid fa-school"></i>
+                <span>Infraestrutura</span>
+            </button>
+
+            <div class="gestao-grupo">
+                <button class="gestao-item gestao-grupo-titulo"
+                        type="button" aria-expanded="true">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Editar Área do Aluno</span>
+                    <i class="fa-solid fa-chevron-down seta-grupo"></i>
+                </button>
+
+                <div class="gestao-submenu">
+                    <button class="gestao-subitem" type="button"
+                            data-arquivo="normas">
+                        Normas e Regras
+                    </button>
+
+                    <button class="gestao-subitem" type="button"
+                            data-arquivo="aprofundamento">
+                        Aprofundamento dos Cursos
+                    </button>
+
+                    <button class="gestao-subitem" type="button"
+                            data-arquivo="recursos">
+                        Recursos do Aluno
+                    </button>
+                </div>
+            </div>
+
+            <a class="gestao-item gestao-link-aluno"
+                href="/php/area-aluno.php">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Acessar Área do Aluno</span>
+            </a>
+
+            <button class="gestao-item gestao-sair"
+                    type="button" id="btnSairGestao">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Sair da conta</span>
+            </button>
+        </nav>
+
+        <p class="gestao-sidebar-nota">Painel administrativo</p>
+    </aside>
+
+    <main class="gestao-conteudo" id="gestaoConteudo">
+        <section class="gestao-pagina gestao-pagina-ativa">
+            <div class="gestao-boas-vindas">
+                <div>
+                    <span class="gestao-kicker">PAINEL ADMINISTRATIVO</span>
+                    <h1>Área da Gestão</h1>
+                    <p>Gerencie as informações do Portal CEEPPLG em um só lugar.</p>
+                </div>
+                <div class="gestao-boas-icone">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+            </div>
+
+            <div class="gestao-secao-titulo">
+                <span></span>
+                <h2>O que você deseja editar?</h2>
+            </div>
+
+            <div class="gestao-cards">
+                <button class="gestao-card" data-arquivo="institucional">
+                    <span class="gestao-card-icone">
+                        <i class="fa-solid fa-building"></i>
+                    </span>
+                    <strong>Informações institucionais</strong>
+                    <span>Contatos, redes sociais, horários e rodapé.</span>
+                    <em>Gerenciar <i class="fa-solid fa-arrow-right"></i></em>
+                </button>
+
+                <button class="gestao-card" data-arquivo="cursos">
+                    <span class="gestao-card-icone vermelho">
+                        <i class="fa-solid fa-book-open"></i>
+                    </span>
+                    <strong>Cursos e matérias</strong>
+                    <span>Informática, Redes e suas disciplinas.</span>
+                    <em>Gerenciar <i class="fa-solid fa-arrow-right"></i></em>
+                </button>
+
+                <button class="gestao-card" data-arquivo="docentes">
+                    <span class="gestao-card-icone">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </span>
+                    <strong>Corpo docente</strong>
+                    <span>Áreas de conhecimento, matérias e professores.</span>
+                    <em>Gerenciar <i class="fa-solid fa-arrow-right"></i></em>
+                </button>
+
+                <button class="gestao-card" data-arquivo="infraestrutura">
+                    <span class="gestao-card-icone vermelho">
+                        <i class="fa-solid fa-school"></i>
+                    </span>
+                    <strong>Infraestrutura</strong>
+                    <span>Ambientes, imagens e finalidades.</span>
+                    <em>Gerenciar <i class="fa-solid fa-arrow-right"></i></em>
+                </button>
+
+                <button class="gestao-card" data-arquivo="normas">
+                    <span class="gestao-card-icone">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </span>
+                    <strong>Normas e Regras</strong>
+                    <span>Documento de normas disponibilizado aos alunos.</span>
+                    <em>Gerenciar <i class="fa-solid fa-arrow-right"></i></em>
+                </button>
+
+                <button class="gestao-card" data-arquivo="aprofundamento">
+                    <span class="gestao-card-icone vermelho">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </span>
+                    <strong>Aprofundamento dos Cursos</strong>
+                    <span>PDFs separados por curso técnico.</span>
+                    <em>Gerenciar <i class="fa-solid fa-arrow-right"></i></em>
+                </button>
+
+                <button class="gestao-card" data-arquivo="recursos">
+                    <span class="gestao-card-icone">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </span>
+                    <strong>Recursos do Aluno</strong>
+                    <span>Sistemas e projetos de TCC.</span>
+                    <em>Gerenciar <i class="fa-solid fa-arrow-right"></i></em>
+                </button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div class="gestao-toast" id="gestaoToast"
+     role="status" aria-live="polite"></div>
+
+<script src="/js/gestao.js"></script>
+</body>
+</html>

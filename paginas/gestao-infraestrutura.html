@@ -1,0 +1,158 @@
+
+<section class="gestao-pagina gestao-pagina-ativa">
+
+    <div class="gestao-cabecalho-pagina">
+        <span class="gestao-kicker">ESTRUTURA ESCOLAR</span>
+
+        <h1>
+            <i class="fa-solid fa-building-columns"></i>
+            Infraestrutura
+        </h1>
+
+        <p>
+            Cadastre, edite, publique e gerencie os ambientes físicos da escola.
+        </p>
+    </div>
+
+    <form id="formInfraestrutura"
+          class="gestao-form-demo"
+          enctype="multipart/form-data">
+
+        <input type="hidden" id="idInfraestrutura" name="id_local">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone">
+                <i class="fa-solid fa-circle-plus"></i>
+            </div>
+
+            <div>
+                <h2 id="tituloFormularioInfraestrutura">Adicionar ambiente</h2>
+                <p>Informe os dados e selecione até duas fotos do espaço escolar.</p>
+            </div>
+        </div>
+
+        <div class="gestao-form-grid">
+
+            <label>
+                <span>
+                    <i class="fa-solid fa-door-open"></i>
+                    Nome do ambiente
+                </span>
+
+                <input type="text"
+                       id="nomeInfraestrutura"
+                       name="nome"
+                       maxlength="150"
+                       required
+                       placeholder="Ex.: Laboratório de Informática">
+            </label>
+
+            <label class="campo-largo">
+                <span>
+                    <i class="fa-solid fa-align-left"></i>
+                    Descrição e finalidade
+                </span>
+
+                <textarea id="descricaoInfraestrutura"
+                          name="descricao"
+                          rows="5"
+                          placeholder="Descreva o ambiente, sua finalidade e os recursos disponíveis."></textarea>
+            </label>
+
+            <!-- PRIMEIRA FOTO -->
+            <label class="campo-largo">
+                <span>
+                    <i class="fa-solid fa-image"></i>
+                    Primeira foto
+                </span>
+
+                <input type="file"
+                       id="imagemInfraestrutura"
+                       name="imagem"
+                       accept="image/jpeg,image/png,image/webp,image/gif"
+                       data-preview="infra1"
+                       class="gestao-input-arquivo">
+
+                <small data-preview-output="infra1">
+                    Nenhuma imagem selecionada.
+                </small>
+
+                <img id="previewInfraestrutura"
+                     alt="Pré-visualização da primeira foto"
+                     hidden
+                     style="max-width:280px;max-height:200px;object-fit:cover;border-radius:10px;margin-top:12px;">
+            </label>
+
+            <!-- SEGUNDA FOTO -->
+            <label class="campo-largo">
+                <span>
+                    <i class="fa-solid fa-images"></i>
+                    Segunda foto
+                </span>
+
+                <input type="file"
+                       id="imagemInfraestrutura2"
+                       name="imagem2"
+                       accept="image/jpeg,image/png,image/webp,image/gif"
+                       data-preview="infra2"
+                       class="gestao-input-arquivo">
+
+                <small data-preview-output="infra2">
+                    Nenhuma imagem selecionada.
+                </small>
+
+                <img id="previewInfraestrutura2"
+                     alt="Pré-visualização da segunda foto"
+                     hidden
+                     style="max-width:280px;max-height:200px;object-fit:cover;border-radius:10px;margin-top:12px;">
+            </label>
+
+        </div>
+
+        <div class="gestao-aviso-form">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>
+                As fotos são opcionais. Formatos aceitos: JPG, PNG, WEBP e GIF.
+                Limite de 5 MB por imagem.
+            </p>
+        </div>
+
+        <div class="gestao-acoes-form">
+            <button class="gestao-botao-principal"
+                    id="btnSalvarInfraestrutura"
+                    type="submit">
+                <i class="fa-solid fa-plus"></i>
+                Adicionar ambiente
+            </button>
+
+      <button type="button"
+        id="btnCancelarInfraestrutura"
+        hidden>
+    Cancelar edição
+</button>
+        </div>
+
+        <p id="mensagemInfraestrutura" role="status" hidden></p>
+
+    </form>
+
+    <div class="gestao-form-demo gestao-bloco-listagem">
+
+        <div class="gestao-titulo-secao">
+            <div class="gestao-titulo-icone gestao-icone-listagem">
+                <i class="fa-solid fa-list-check"></i>
+            </div>
+
+            <div>
+                <h2>Ambientes cadastrados</h2>
+                <p>Gerencie os ambientes, as fotografias e a publicação no site.</p>
+            </div>
+        </div>
+
+        <div id="listaInfraestrutura" aria-live="polite">
+            Carregando ambientes...
+        </div>
+
+    </div>
+
+</section>

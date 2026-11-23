@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/rR9W2Zwj/Logotipo-ceep-em-azul-e-vermelho.png">
+
+    <title>Portal CEEPPLG | Normas e Regras</title>
+</head>
+
+<body>
+
+    <!-- MODAL DE SAÍDA -->
+    <div class="modal-sair" id="modalSair">
+        <div class="modal-sair-caixa">
+            <div class="modal-sair-icone">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+
+            <h2>Sair da conta?</h2>
+            <p>Tem certeza que deseja sair da sua conta?</p>
+
+            <div class="modal-sair-botoes">
+                <button type="button" id="cancelarSaida" class="btn-cancelar-saida">
+                    Cancelar
+                </button>
+
+                <button type="button" id="confirmarSaida" class="btn-confirmar-saida">
+                    Sair da conta
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+        <div class="logo-box">
+            <a href="/index.html" aria-label="Ir para o início">
+                <img src="https://i.ibb.co/vCK1m7DP/1786128151276.png" alt="Logo CEEP">
+            </a>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="menu">
+            <a href="/index.html">INÍCIO</a>
+            <a href="/paginas/cursos.html">CURSOS</a>
+            <a href="/paginas/corpodocente.html">CORPO DOCENTE</a>
+            <a href="/paginas/infraestrutura.html">INFRAESTRUTURA</a>
+        </nav>
+    </header>
+
+    <!-- ÁREA DO ALUNO -->
+    <section class="area-aluno">
+
+        <!-- MENU LATERAL -->
+        <aside class="aluno-sidebar">
+            <div class="sidebar-topo">
+                <h2>ÁREA DO ALUNO</h2>
+                <span class="linha-vermelha"></span>
+            </div>
+
+            <nav class="aluno-menu">
+                <a class="aluno-item" href="/php/area-aluno.php">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-house"></i>
+                    </span>
+                    <span class="item-texto">Painel Inicial</span>
+                </a>
+
+                <a class="aluno-item" href="/paginas/calculo-media.html">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-calculator"></i>
+                    </span>
+                    <span class="item-texto">Cálculo de Média</span>
+                </a>
+
+                <a class="aluno-item ativo" href="/paginas/normas-regras.html" aria-current="page">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-file-shield"></i>
+                    </span>
+                    <span class="item-texto">Normas e Regras</span>
+                </a>
+
+                <a class="aluno-item" href="/paginas/aprofundamento-cursos.html">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-book-open"></i>
+                    </span>
+                    <span class="item-texto">
+                        Aprofundamento<br class="desktop-only"> dos Cursos
+                    </span>
+                </a>
+
+                <a class="aluno-item" href="/paginas/recursos-aluno.html">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </span>
+                    <span class="item-texto">Recursos do Aluno</span>
+                </a>
+
+                <button class="aluno-item aluno-sair" id="btnSair" type="button">
+                    <span class="item-icone">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </span>
+                    <span class="item-texto">Sair da conta</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="aluno-conteudo">
+            <section class="pagina-aluno pagina-ativa" id="pagina-normas">
+
+                <div class="pagina-cabecalho">
+                    <span class="mini-titulo">INFORMAÇÕES INSTITUCIONAIS</span>
+                    <h1>Normas e Regras</h1>
+                    <p>Consulte o Regimento Escolar da instituição.</p>
+                </div>
+
+                <!-- AVISO DINÂMICO -->
+                <div class="regimento-aviso" id="regimentoAviso" role="alert" hidden>
+                    <div class="regimento-aviso-icone">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div class="regimento-aviso-texto">
+                        <span class="regimento-aviso-etiqueta" id="regimentoAvisoEtiqueta">
+                            ATENÇÃO — DOCUMENTO PROVISÓRIO
+                        </span>
+
+                        <h2 id="regimentoAvisoTitulo">DOCUMENTO PROVISÓRIO</h2>
+
+                        <p id="regimentoAvisoDescricao">
+                            Carregando informações do documento...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- REGIMENTO ESCOLAR -->
+                <section class="regimento-documento" aria-labelledby="tituloRegimento">
+
+                    <div class="regimento-documento-cabecalho">
+                        <div class="regimento-documento-icone">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+
+                        <div>
+                            <h2 id="tituloRegimento">Regimento Escolar</h2>
+                            <p id="regimentoVersao">Carregando dados do documento...</p>
+                        </div>
+                    </div>
+
+                    <!-- VISUALIZADOR DO PDF -->
+                    <div class="regimento-pdf" id="regimentoPDF">
+    <div id="regimentoPDFCarregando">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        Carregando Regimento Escolar...
+    </div>
+
+    <div id="regimentoPDFPaginas"></div>
+</div>
+
+                    <!-- BOTÃO PARA ABRIR O PDF -->
+                    <div class="regimento-documento-acoes">
+                        <p>
+                            Se o documento não aparecer acima, abra o PDF diretamente em uma nova aba.
+                        </p>
+
+                        <a
+                            id="regimentoAbrirPDF"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="regimento-btn"
+                            hidden>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            Abrir PDF em nova aba
+                        </a>
+                    </div>
+
+                    <p id="regimentoErro" role="status" aria-live="polite" hidden></p>
+
+                </section>
+            </section>
+        </main>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <h5 class="footer-title">
+            <b>
+                Centro Estadual de Educação Profissional Professora
+                Lourdinha Guerra
+            </b>
+        </h5>
+
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <img
+                    src="https://plain-enam-prod-public.komododecks.com/202607/03/6Y5TdebZ5qeYzIaN8hDt/image.png"
+                    alt="Logo CEEP">
+            </div>
+
+            <div class="footer-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=R.+Antônio+Lopes+Chaves,+2-90,+Nova+Parnamirim,+Parnamirim+-+RN"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <u>
+                            R. Antônio Lopes Chaves, 2-90
+                            <br>Nova Parnamirim
+                            <br>Parnamirim - RN
+                            <br>59150-570
+                        </u>
+                    </a>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+558436082669"><u>(84) 3608-2669</u></a>
+                </div>
+            </div>
+
+            <div class="footer-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    07:30 às 17:00
+                    <br>de segunda à sexta
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:ceeplourdinhaguerra@educar.rn.gov.br">
+                        <u>ceeplourdinhaguerra@educar.rn.gov.br</u>
+                    </a>
+                </div>
+
+                <div class="social">
+                    <a href="https://www.instagram.com/ceep_lourdinhaguerra?igsh=dzZ3cXQ1a3drbndr"
+                       target="_blank" rel="noopener noreferrer" aria-label="Instagram do CEEPPLG">
+                        <img src="https://i.ibb.co/CsMsX9mk/1783687086987.png" alt="Instagram">
+                    </a>
+
+                    <a href="https://www.facebook.com/ceepplg/"
+                       target="_blank" rel="noopener noreferrer" aria-label="Facebook do CEEPPLG">
+                        <img src="https://i.ibb.co/q2KyML8/1783687127159.png" alt="Facebook">
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCQ6q8nbLAo3AnoDtHzivvXw"
+                       target="_blank" rel="noopener noreferrer" aria-label="YouTube do CEEPPLG">
+                        <img src="https://i.ibb.co/m5P5g1wZ/1783687181479.png" alt="YouTube">
+                    </a>
+
+                    <a href="https://br.linkedin.com/company/ceep-professora-lourdinha-guerra"
+                       target="_blank" rel="noopener noreferrer" aria-label="LinkedIn do CEEPPLG">
+                        <img src="https://i.ibb.co/C5gLdMbb/1783687219052.png" alt="LinkedIn">
+                    </a>
+
+                    <a href="https://wa.me/558494200492"
+                       target="_blank" rel="noopener noreferrer" aria-label="WhatsApp do CEEPPLG">
+                        <img src="https://i.ibb.co/prJMvFpG/1791912662514.png" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="copyright">
+            © 2026 CEEPPLG – Centro Estadual de Educação Profissional
+            Professora Lourdinha Guerra. Todos os direitos reservados.
+            <br>
+            Portal desenvolvido pelos alunos do Curso Técnico em Informática:
+            Anderson Ribeiro da Silva,
+            Juscelino Emanoel Nunes Galvão e
+            Maria Vitória Elias Silva.
+        </div>
+    </footer>
+
+    <script src="/js/index.js"></script>
+
+    <!-- CARREGA AS INFORMAÇÕES ATUAIS DO BANCO -->
+    <script>
+    
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const aviso = document.getElementById("regimentoAviso");
+    const avisoEtiqueta = document.getElementById("regimentoAvisoEtiqueta");
+    const avisoTitulo = document.getElementById("regimentoAvisoTitulo");
+    const avisoDescricao = document.getElementById("regimentoAvisoDescricao");
+
+    const titulo = document.getElementById("tituloRegimento");
+    const versao = document.getElementById("regimentoVersao");
+
+    const paginas = document.getElementById("regimentoPDFPaginas");
+    const carregando = document.getElementById("regimentoPDFCarregando");
+
+    const botaoPDF = document.getElementById("regimentoAbrirPDF");
+    const erro = document.getElementById("regimentoErro");
+
+    try {
+        const resposta = await fetch("/php/normas-publicas.php", {
+            method: "GET",
+            cache: "no-store"
+        });
+
+        const dados = await resposta.json();
+
+        if (!resposta.ok || !dados.sucesso || !dados.documento) {
+            throw new Error(
+                dados.mensagem || "Não foi possível carregar o Regimento Escolar."
+            );
+        }
+
+        const documento = dados.documento;
+        const caminho = String(documento.caminho_arquivo || "");
+
+        if (!/^documentos\/[a-zA-Z0-9._-]+\.pdf$/i.test(caminho)) {
+            throw new Error("O caminho do PDF é inválido.");
+        }
+
+        const urlPDF = "/php/visualizar-normas.php";
+
+        titulo.textContent = documento.titulo || "Regimento Escolar";
+
+        versao.textContent =
+            `Documento em PDF · Versão de ${documento.ano_versao}`;
+
+        botaoPDF.href = urlPDF;
+        botaoPDF.hidden = false;
+
+        if (Number(documento.provisoria) === 1) {
+            avisoEtiqueta.textContent = "ATENÇÃO — DOCUMENTO PROVISÓRIO";
+
+            avisoTitulo.textContent =
+                `DOCUMENTO DE ${documento.ano_versao}`;
+
+            avisoDescricao.textContent =
+                documento.descricao ||
+                "Este documento é provisório. Confirme com a instituição se existe uma versão mais recente.";
+
+            aviso.hidden = false;
+        } else {
+            aviso.hidden = true;
+        }
+
+        // Carrega o PDF.js.
+        const pdfjsLib = await import(
+            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.5.438/pdf.min.mjs"
+        );
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.5.438/pdf.worker.min.mjs";
+
+        // Solicita o documento completo, sem carregamento por intervalos.
+        const carregamentoPDF = pdfjsLib.getDocument({
+            url: urlPDF,
+            disableRange: true,
+            disableStream: true
+        });
+
+        const pdf = await carregamentoPDF.promise;
+
+        console.log("Total de páginas do PDF:", pdf.numPages);
+
+        // Limpa qualquer renderização anterior.
+        paginas.replaceChildren();
+
+        // Renderiza cada página individualmente.
+        for (let numero = 1; numero <= pdf.numPages; numero++) {
+            console.log(`Renderizando página ${numero} de ${pdf.numPages}`);
+
+            const pagina = await pdf.getPage(numero);
+
+            const larguraDisponivel =
+                paginas.getBoundingClientRect().width || 700;
+
+            const viewportOriginal = pagina.getViewport({
+                scale: 1
+            });
+
+            const escala = Math.min(
+                (larguraDisponivel - 4) / viewportOriginal.width,
+                1.25
+            );
+
+            const viewport = pagina.getViewport({
+                scale: escala
+            });
+
+            // Reduz a resolução interna para economizar memória no celular.
+            const proporcao = Math.min(
+                window.devicePixelRatio || 1,
+                1.5
+            );
+
+            const canvas = document.createElement("canvas");
+            const contexto = canvas.getContext("2d", {
+                alpha: false
+            });
+
+            if (!contexto) {
+                throw new Error(
+                    `Não foi possível criar o canvas da página ${numero}.`
+                );
+            }
+
+            canvas.width = Math.ceil(viewport.width * proporcao);
+            canvas.height = Math.ceil(viewport.height * proporcao);
+
+            canvas.style.width = `${viewport.width}px`;
+            canvas.style.height = `${viewport.height}px`;
+
+            canvas.style.display = "block";
+            canvas.style.maxWidth = "100%";
+            canvas.style.margin = "0 auto 18px";
+            canvas.style.background = "#ffffff";
+
+            paginas.appendChild(canvas);
+
+            await pagina.render({
+                canvasContext: contexto,
+                viewport: viewport,
+                transform: [
+                    proporcao, 0,
+                    0, proporcao,
+                    0, 0
+                ]
+            }).promise;
+
+            console.log(`Página ${numero} renderizada com sucesso.`);
+        }
+
+        carregando.hidden = true;
+
+        console.log("PDF carregado completamente.");
+
+    } catch (excecao) {
+        console.error("Erro ao carregar o Regimento Escolar:", excecao);
+
+        carregando.hidden = false;
+        carregando.textContent =
+            "Não foi possível exibir o documento. Utilize o botão abaixo para abri-lo.";
+
+        aviso.hidden = false;
+        avisoEtiqueta.textContent = "DOCUMENTO INDISPONÍVEL";
+        avisoTitulo.textContent = "Não foi possível carregar o documento";
+
+        avisoDescricao.textContent =
+            "Tente atualizar a página mais tarde. Se o problema persistir, entre em contato com a instituição.";
+
+        titulo.textContent = "Regimento Escolar";
+        versao.textContent =
+            "Não foi possível carregar os dados do documento.";
+
+        botaoPDF.href = "/php/visualizar-normas.php";
+        botaoPDF.hidden = false;
+
+        erro.hidden = false;
+        erro.textContent =
+            "O visualizador não conseguiu carregar o PDF. Você pode abrir o documento diretamente pelo botão.";
+
+    }
+});
+
+
+    </script>
+
+    <script src="/js/rodape-dinamico.js"></script>
+
+</body>
+</html>

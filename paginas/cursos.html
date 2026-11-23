@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/rR9W2Zwj/Logotipo-ceep-em-azul-e-vermelho.png">
+
+    <title>Portal CEEPPLG | Cursos</title>
+</head>
+
+<body class="pagina-com-header">
+
+    <header class="header">
+        <div class="logo-box">
+            <img src="https://i.ibb.co/vCK1m7DP/1786128151276.png" alt="Logo CEEP">
+        </div>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+
+        <nav class="menu">
+            <a href="/index.html">INÍCIO</a>
+            <a href="/paginas/corpodocente.html">CORPO DOCENTE</a>
+            <a href="/paginas/infraestrutura.html">INFRAESTRUTURA</a>
+            <a href="/php/continuar.php">ENTRAR</a>
+        </nav>
+
+    </header>
+
+    <main class="main2">
+
+        <div class="main2-header">
+            <div class="main2-tag">
+                <span></span>
+                <p>CONHEÇA NOSSOS CURSOS</p>
+            </div>
+
+            <h2>Informática e Redes de Computadores</h2>
+
+            <p>
+                Construa sua carreira em TI com nosso Ensino Médio Integrado em Informática e Redes de Computadores.
+            </p>
+        </div>
+
+        <section class="courses-grid">
+
+            <!-- CURSO DE INFORMÁTICA -->
+
+            <article class="course-card course-informatica" data-curso-id="1">
+
+                <div class="course-front">
+
+                    <div class="course-top">
+                        <div class="course-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <span class="course-number">01</span>
+                    </div>
+
+                    <div class="tech-visual visual-code">
+                        <div class="code-line line-1"></div>
+                        <div class="code-line line-2"></div>
+                        <div class="code-line line-3"></div>
+
+                        <div class="code-symbol">&lt;/&gt;</div>
+
+                        <span class="tech-dot dot-1"></span>
+                        <span class="tech-dot dot-2"></span>
+                        <span class="tech-dot dot-3"></span>
+                    </div>
+
+                    <div class="course-content">
+
+                        <span class="course-category">TÉCNICO MÉDIO EM</span>
+
+                        <h2>
+                            <strong>Informática</strong>
+                        </h2>
+
+                        <p>
+                            Formação voltada para programação,
+                            desenvolvimento de sistemas,
+                            aplicações e soluções digitais.
+                        </p>
+
+                        <div class="course-tags">
+                            <span>Programação</span>
+                            <span>Sistemas</span>
+                            <span>Web</span>
+                        </div>
+
+                        <button class="course-button" type="button" onclick="openCourse('informatica')">
+                            <span>CONHECER CURSO</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="course-info">
+                        <div>
+                            <small>AVALIAÇÃO</small>
+                            <strong>MEC</strong>
+                        </div>
+
+                        <div>
+                            <small>DURAÇÃO</small>
+                            <strong>3 ANOS</strong>
+                        </div>
+
+                        <div>
+                            <small>MODALIDADE</small>
+                            <strong>PRESENCIAL</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- VERSO DE INFORMÁTICA -->
+
+                <div class="course-back">
+
+                    <div class="back-top">
+                        <button class="back-button" type="button" onclick="closeCourse('informatica')">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            VOLTAR
+                        </button>
+
+                        <span>01</span>
+                    </div>
+
+                    <div class="back-title">
+                        <span>FORMAÇÃO TÉCNICA</span>
+
+                        <h3>
+                            Disciplinas de
+                            <strong>Informática</strong>
+                        </h3>
+
+                        <p>
+                            Conheça algumas das disciplinas técnicas que fazem parte da formação.
+                        </p>
+                    </div>
+
+                    <!-- DISCIPLINAS CARREGADAS DO BANCO -->
+
+                    <div class="subjects-grid" id="disciplinas-informatica">
+                        <p>Carregando disciplinas...</p>
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- CURSO DE REDES DE COMPUTADORES -->
+
+            <article class="course-card course-redes" data-curso-id="2">
+
+                <div class="course-front">
+
+                    <div class="course-top">
+                        <div class="course-icon">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+
+                        <span class="course-number">02</span>
+                    </div>
+
+                    <div class="tech-visual visual-network">
+
+                        <div class="network-center">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+
+                        <div class="network-node node-1">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+
+                        <div class="network-node node-2">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+
+                        <div class="network-node node-3">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+
+                        <div class="network-node node-4">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+
+                        <span class="network-line network-line-1"></span>
+                        <span class="network-line network-line-2"></span>
+                        <span class="network-line network-line-3"></span>
+                        <span class="network-line network-line-4"></span>
+
+                    </div>
+
+                    <div class="course-content">
+
+                        <span class="course-category">TÉCNICO MÉDIO EM</span>
+
+                        <h2>
+                            Redes
+                            <strong>de Computadores</strong>
+                        </h2>
+
+                        <p>
+                            Aprenda a configurar redes, servidores,
+                            infraestrutura e tecnologias responsáveis
+                            por conectar sistemas.
+                        </p>
+
+                        <div class="course-tags">
+                            <span>Redes</span>
+                            <span>Servidores</span>
+                            <span>Segurança</span>
+                        </div>
+
+                        <button class="course-button" type="button" onclick="openCourse('redes')">
+                            <span>CONHECER CURSO</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="course-info">
+                        <div>
+                            <small>AVALIAÇÃO</small>
+                            <strong>MEC</strong>
+                        </div>
+
+                        <div>
+                            <small>DURAÇÃO</small>
+                            <strong>3 ANOS</strong>
+                        </div>
+
+                        <div>
+                            <small>MODALIDADE</small>
+                            <strong>PRESENCIAL</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- VERSO DE REDES -->
+
+                <div class="course-back">
+
+                    <div class="back-top">
+                        <button class="back-button" type="button" onclick="closeCourse('redes')">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            VOLTAR
+                        </button>
+
+                        <span>02</span>
+                    </div>
+
+                    <div class="back-title">
+                        <span>FORMAÇÃO TÉCNICA</span>
+
+                        <h3>
+                            Disciplinas de
+                            <strong>Redes</strong>
+                        </h3>
+
+                        <p>
+                            Conheça algumas das disciplinas técnicas que fazem parte da formação.
+                        </p>
+                    </div>
+
+                    <!-- DISCIPLINAS CARREGADAS DO BANCO -->
+
+                    <div class="subjects-grid" id="disciplinas-redes">
+                        <p>Carregando disciplinas...</p>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+
+    <footer class="footer">
+
+        <h5 class="footer-title">
+            <b>
+                Centro Estadual de Educação Profissional Professora
+                Lourdinha Guerra
+            </b>
+        </h5>
+
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <img
+                    src="https://plain-enam-prod-public.komododecks.com/202607/03/6Y5TdebZ5qeYzIaN8hDt/image.png"
+                    alt="Logo CEEP">
+            </div>
+
+            <div class="footer-info">
+
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=R.+Antônio+Lopes+Chaves,+2-90,+Nova+Parnamirim,+Parnamirim+-+RN"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <u>
+                            R. Antônio Lopes Chaves, 2-90
+                            <br>
+                            Nova Parnamirim
+                            <br>
+                            Parnamirim - RN
+                            <br>
+                            59150-570
+                        </u>
+                    </a>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+
+                    <a href="tel:+558436082669">
+                        <u>(84) 3608-2669</u>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-info">
+
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    07:30 às 17:00
+                    <br>
+                    de segunda à sexta
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <a href="mailto:ceeplourdinhaguerra@educar.rn.gov.br">
+                        <u>ceeplourdinhaguerra@educar.rn.gov.br</u>
+                    </a>
+                </div>
+
+                <div class="social">
+
+                    <a
+                        href="https://www.instagram.com/ceep_lourdinhaguerra?igsh=dzZ3cXQ1a3drbndr"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/CsMsX9mk/1783687086987.png" alt="Instagram">
+                    </a>
+
+                    <a
+                        href="https://www.facebook.com/ceepplg/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/q2KyML8/1783687127159.png" alt="Facebook">
+                    </a>
+
+                    <a
+                        href="https://www.youtube.com/channel/UCQ6q8nbLAo3AnoDtHzivvXw"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/m5P5g1wZ/1783687181479.png" alt="YouTube">
+                    </a>
+
+                    <a
+                        href="https://br.linkedin.com/company/ceep-professora-lourdinha-guerra"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/C5gLdMbb/1783687219052.png" alt="LinkedIn">
+                    </a>
+
+                    <a
+                        href="https://wa.me/558494200492"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="https://i.ibb.co/prJMvFpG/1791912662514.png" alt="WhatsApp">
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="copyright">
+            © 2026 CEEPPLG – Centro Estadual de Educação Profissional
+            Professora Lourdinha Guerra. Todos os direitos reservados.
+
+            <br>
+
+            Portal desenvolvido pelos alunos do Curso Técnico em Informática:
+
+            Anderson Ribeiro da Silva,
+            Juscelino Emanoel Nunes Galvão e
+            Maria Vitória Elias Silva.
+        </div>
+
+    </footer>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/cursos-publicos.js"></script>
+    <script src="/js/rodape-dinamico.js"></script>
+
+</body>
+</html>
