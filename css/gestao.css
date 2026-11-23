@@ -1,0 +1,4224 @@
+
+/* ==========================================================
+   ÁREA DA GESTÃO — PADRÃO VISUAL DA ÁREA DO ALUNO
+   Arquivo: gestao.css
+   Mantém o style.css geral intacto
+========================================================== */
+
+body.pagina-gestao {
+    background: #f8f9fc;
+    color: #182d5a;
+}
+
+/* ==========================================================
+   ESTRUTURA PRINCIPAL
+========================================================== */
+
+.pagina-gestao .gestao-layout {
+    display: grid;
+    grid-template-columns: 285px minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding-top: 85px;
+    min-height: calc(100vh - 85px);
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   MENU LATERAL
+========================================================== */
+
+.pagina-gestao .gestao-sidebar {
+    position: sticky;
+    top: 85px;
+    align-self: start;
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100vh - 85px);
+    min-height: 0;
+    padding: 32px 18px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #fff;
+    border: none;
+    border-right: 1px solid #e5e9f0;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 10;
+}
+
+/* ==========================================================
+   TOPO DO MENU
+========================================================== */
+
+.pagina-gestao .gestao-sidebar-topo {
+    padding: 5px 12px 28px;
+}
+
+.pagina-gestao .gestao-sidebar-topo h2 {
+    margin: 0;
+    color: #1f2f5c;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.pagina-gestao .gestao-sidebar-topo .gestao-kicker {
+    display: none;
+}
+
+.pagina-gestao .gestao-linha-vermelha {
+    display: block;
+    width: 32px;
+    height: 3px;
+    margin-top: 12px;
+    border-radius: 10px;
+    background: #ff3030;
+}
+
+/* ==========================================================
+   MENU E ITENS
+========================================================== */
+
+.pagina-gestao .gestao-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.pagina-gestao .gestao-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 65px;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 13px;
+    background: transparent;
+    color: #1f2f5c;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.35;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+.pagina-gestao .gestao-item:hover {
+    background: #f1f4f9;
+    transform: translateX(3px);
+}
+
+.pagina-gestao .gestao-item:focus-visible,
+.pagina-gestao .gestao-subitem:focus-visible,
+.pagina-gestao .gestao-card:focus-visible {
+    outline: 3px solid rgba(255, 48, 48, .45);
+    outline-offset: 3px;
+}
+
+/* ==========================================================
+   ÍCONES DO MENU
+   O HTML da Gestão usa ícones diretamente nos botões.
+========================================================== */
+
+.pagina-gestao .gestao-item > i:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 45px;
+    width: 45px;
+    height: 45px;
+    border-radius: 11px;
+    background: #eef2f8;
+    color: #1f2f5c;
+    font-size: 17px;
+    transition: background .25s ease, color .25s ease;
+}
+
+.pagina-gestao .gestao-item > span {
+    flex: 1;
+    min-width: 0;
+}
+
+.pagina-gestao .gestao-item.ativo {
+    background: #1f2f5c;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(31, 47, 92, .15);
+}
+
+.pagina-gestao .gestao-item.ativo:hover {
+    transform: none;
+}
+
+.pagina-gestao .gestao-item.ativo > i:first-child {
+    background: rgba(255, 255, 255, .12);
+    color: #fff;
+}
+
+.pagina-gestao .gestao-item:hover:not(.ativo) > i:first-child {
+    background: #ffecec;
+    color: #ff3030;
+}
+
+/* ==========================================================
+   GRUPO EXPANSÍVEL
+========================================================== */
+
+.pagina-gestao .gestao-grupo {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.pagina-gestao .gestao-grupo-titulo {
+    position: relative;
+}
+
+.pagina-gestao .gestao-grupo-titulo .seta-grupo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 12px;
+    transition: transform .25s ease;
+}
+
+.pagina-gestao .gestao-grupo.fechado .seta-grupo {
+    transform: rotate(-90deg);
+}
+
+.pagina-gestao .gestao-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 7px 0 7px 25px;
+}
+
+.pagina-gestao .gestao-grupo.fechado .gestao-submenu {
+    display: none;
+}
+
+.pagina-gestao .gestao-subitem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #1f2f5c;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease;
+}
+
+.pagina-gestao .gestao-subitem:hover {
+    background: #f1f4f9;
+    color: #ff3030;
+}
+
+.pagina-gestao .gestao-subitem.ativo {
+    background: #eef2f8;
+    color: #1f2f5c;
+}
+
+/* ==========================================================
+   ACESSO À ÁREA DO ALUNO E SAÍDA
+========================================================== */
+
+.pagina-gestao .gestao-link-aluno {
+    text-decoration: none;
+}
+
+.pagina-gestao .gestao-sair {
+    margin-top: 3px;
+}
+
+.pagina-gestao .gestao-sidebar-nota {
+    margin: 25px 12px 0;
+    color: #64748b;
+    font-size: 12px;
+}
+
+/* ==========================================================
+   CONTEÚDO PRINCIPAL
+   Espaçamento baseado na Área do Aluno.
+========================================================== */
+
+.pagina-gestao .gestao-conteudo {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 55px clamp(25px, 5vw, 75px) 80px;
+}
+
+.pagina-gestao .gestao-pagina {
+    display: none;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: gestaoEntrar .35s ease;
+}
+
+.pagina-gestao .gestao-pagina.gestao-pagina-ativa {
+    display: block;
+}
+
+@keyframes gestaoEntrar {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================
+   PAINEL INICIAL
+========================================================== */
+
+.pagina-gestao .gestao-boas-vindas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    min-height: 250px;
+    margin-bottom: 35px;
+    padding: 40px;
+    box-sizing: border-box;
+    border: 1px solid #e2e8f0;
+    border-top: 6px solid #ff3030;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(24, 45, 90, .05);
+}
+
+.pagina-gestao .gestao-boas-vindas h1 {
+    margin: 12px 0;
+    color: #1f2f5c;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 800;
+}
+
+.pagina-gestao .gestao-boas-vindas p {
+    max-width: 560px;
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.pagina-gestao .gestao-boas-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 24px;
+    background: #f1f4fa;
+    color: #1f2f5c;
+    font-size: 42px;
+}
+
+.pagina-gestao .gestao-secao-titulo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 0 0 22px;
+}
+
+.pagina-gestao .gestao-secao-titulo > span {
+    flex: 0 0 5px;
+    width: 5px;
+    height: 29px;
+    border-radius: 5px;
+    background: #ff3030;
+}
+
+.pagina-gestao .gestao-secao-titulo h2 {
+    margin: 0;
+    color: #1f2f5c;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+/* ==========================================================
+   CARTÕES DO PAINEL
+========================================================== */
+
+.pagina-gestao .gestao-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.pagina-gestao .gestao-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 220px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #fff;
+    color: #1f2f5c;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(24, 45, 90, .04);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pagina-gestao .gestao-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(24, 45, 90, .09);
+}
+
+.pagina-gestao .gestao-card-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: #eef2f8;
+    color: #1f2f5c;
+    font-size: 20px;
+}
+
+.pagina-gestao .gestao-card-icone.vermelho {
+    background: #ffecec;
+    color: #ff3030;
+}
+
+.pagina-gestao .gestao-card strong {
+    margin-bottom: 9px;
+    color: #1f2f5c;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.pagina-gestao .gestao-card > span:not(.gestao-card-icone) {
+    margin-bottom: 18px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.pagina-gestao .gestao-card em {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: auto;
+    color: #1f2f5c;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+}
+
+.pagina-gestao .gestao-card:hover em {
+    color: #ff3030;
+}
+
+/* ==========================================================
+   CABEÇALHO DAS DEMAIS SEÇÕES
+========================================================== */
+
+.pagina-gestao .gestao-cabecalho-pagina {
+    margin-bottom: 28px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pagina-gestao .gestao-cabecalho-pagina h1 {
+    margin: 10px 0;
+    color: #1f2f5c;
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 800;
+}
+
+.pagina-gestao .gestao-cabecalho-pagina p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ==========================================================
+   FORMULÁRIOS ADMINISTRATIVOS
+========================================================== */
+
+.pagina-gestao .gestao-form-demo {
+    box-sizing: border-box;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(24, 45, 90, .04);
+}
+
+.pagina-gestao .gestao-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.pagina-gestao .gestao-form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+    color: #1f2f5c;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pagina-gestao .gestao-form-grid input,
+.pagina-gestao .gestao-form-grid select,
+.pagina-gestao .gestao-form-grid textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 45px;
+    padding: 12px 14px;
+    border: 1px solid #dbe2ed;
+    border-radius: 9px;
+    outline: none;
+    background: #fff;
+    color: #182d5a;
+    font: inherit;
+    font-size: 13px;
+}
+
+.pagina-gestao .gestao-form-grid textarea {
+    resize: vertical;
+}
+
+.pagina-gestao .gestao-form-grid input:focus,
+.pagina-gestao .gestao-form-grid select:focus,
+.pagina-gestao .gestao-form-grid textarea:focus {
+    border-color: #1f2f5c;
+    box-shadow: 0 0 0 3px rgba(31, 47, 92, .09);
+}
+
+.pagina-gestao .gestao-form-grid .campo-largo {
+    grid-column: 1 / -1;
+}
+
+/* Botões dos formulários */
+
+.pagina-gestao .gestao-botao-principal,
+.pagina-gestao .gestao-acoes-atalho button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 12px 19px;
+    border: 0;
+    border-radius: 9px;
+    background: #1f2f5c;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.pagina-gestao .gestao-botao-principal:hover,
+.pagina-gestao .gestao-acoes-atalho button:hover {
+    background: #2b417b;
+}
+
+.pagina-gestao .gestao-aviso-form {
+    margin: 22px 0;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.pagina-gestao .gestao-placeholder {
+    padding: 30px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.pagina-gestao .gestao-placeholder > i {
+    margin-bottom: 15px;
+    color: #1f2f5c;
+    font-size: 28px;
+}
+
+.pagina-gestao .gestao-placeholder h2 {
+    color: #1f2f5c;
+}
+
+.pagina-gestao .gestao-placeholder p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.pagina-gestao .gestao-acoes-atalho {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ==========================================================
+   CONSELHOS E LEMBRETES
+========================================================== */
+
+.pagina-gestao .gestao-dicas,
+.pagina-gestao .gestao-motivacionais {
+    margin-top: 30px;
+}
+
+.pagina-gestao .gestao-titulo-secao {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 0 0 18px;
+}
+
+.pagina-gestao .gestao-titulo-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #e8edfa;
+    color: #1f2f5c;
+    font-size: 19px;
+}
+
+.pagina-gestao .gestao-titulo-icone.motivacao {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.pagina-gestao .gestao-titulo-secao h2 {
+    margin: 0 0 5px;
+    color: #1f2f5c;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.pagina-gestao .gestao-titulo-secao p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.pagina-gestao .gestao-mensagens,
+.pagina-gestao .gestao-motivacionais-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.pagina-gestao .gestao-mensagem-card,
+.pagina-gestao .gestao-motivacional-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    min-width: 0;
+    padding: 23px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(24, 45, 90, .04);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.pagina-gestao .gestao-mensagem-card:hover,
+.pagina-gestao .gestao-motivacional-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 24px rgba(24, 45, 90, .08);
+}
+
+.pagina-gestao .gestao-motivacional-card {
+    border-top: 4px solid #ff3030;
+}
+
+.pagina-gestao .gestao-mensagem-icone,
+.pagina-gestao .gestao-motivacional-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    border-radius: 11px;
+    font-size: 19px;
+}
+
+.pagina-gestao .gestao-mensagem-icone.conselho {
+    color: #a16207;
+    background: #fef3c7;
+}
+
+.pagina-gestao .gestao-mensagem-icone.lembrete {
+    color: #1f2f5c;
+    background: #e8edfa;
+}
+
+.pagina-gestao .gestao-motivacional-icone {
+    border-radius: 12px;
+    background: #fee2e2;
+    color: #ff3030;
+}
+
+.pagina-gestao .gestao-mensagem-texto,
+.pagina-gestao .gestao-motivacional-card > div:last-child {
+    flex: 1;
+    min-width: 0;
+}
+
+.pagina-gestao .gestao-mensagem-etiqueta {
+    display: block;
+    margin-bottom: 7px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    line-height: 1.5;
+}
+
+.pagina-gestao .gestao-mensagem-card h3,
+.pagina-gestao .gestao-motivacional-card h3 {
+    margin: 0 0 9px;
+    color: #1f2f5c;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.pagina-gestao .gestao-mensagem-card p,
+.pagina-gestao .gestao-motivacional-card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   AVISOS E NOTIFICAÇÕES
+========================================================== */
+
+.pagina-gestao .gestao-toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 100000;
+
+    display: flex;
+    align-items: center;
+
+    max-width: min(400px, calc(100vw - 40px));
+    padding: 16px 20px;
+
+    background: #ffffff;
+    color: #1f2f5c;
+
+    border: 1px solid #ff3030;
+    border-left: 5px solid #ff3030;
+    border-radius: 12px;
+
+    box-shadow: 0 6px 22px rgba(255, 48, 48, 0.16);
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.pagina-gestao .gestao-toast.visivel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .pagina-gestao .gestao-toast {
+        right: 16px;
+        bottom: 16px;
+        max-width: calc(100vw - 32px);
+        padding: 14px 16px;
+        font-size: 13px;
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE — TABLETS
+========================================================== */
+
+@media (max-width: 1000px) {
+    .pagina-gestao .gestao-conteudo {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .pagina-gestao .gestao-mensagens,
+    .pagina-gestao .gestao-motivacionais-grid {
+        gap: 13px;
+    }
+
+    .pagina-gestao .gestao-mensagem-card,
+    .pagina-gestao .gestao-motivacional-card {
+        padding: 18px;
+        gap: 12px;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVIDADE — CELULARES
+========================================================== */
+
+@media (max-width: 750px) {
+    .pagina-gestao .gestao-layout {
+        display: block;
+        padding-top: 85px;
+    }
+
+    .pagina-gestao .gestao-sidebar {
+        position: sticky;
+        top: 85px;
+        z-index: 900;
+        width: 100%;
+        height: auto;
+        padding: 10px 0 5px;
+        overflow: visible;
+        border: 0;
+        border-bottom: 1px solid #e5e9f0;
+        background: rgba(255, 255, 255, .97);
+        backdrop-filter: blur(10px);
+    }
+
+    .pagina-gestao .gestao-sidebar-topo,
+    .pagina-gestao .gestao-sidebar-nota {
+        display: none;
+    }
+
+    .pagina-gestao .gestao-menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0 15px 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+        scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .pagina-gestao .gestao-menu::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .pagina-gestao .gestao-menu::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #cbd5e1;
+    }
+
+    .pagina-gestao .gestao-item {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        width: max-content;
+        min-width: max-content;
+        min-height: 50px;
+        padding: 6px 10px;
+        gap: 8px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .pagina-gestao .gestao-item > i:first-child {
+        flex: 0 0 34px;
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .pagina-gestao .gestao-grupo {
+        flex: 0 0 auto;
+        width: max-content;
+        min-width: max-content;
+    }
+
+    .pagina-gestao .gestao-grupo-titulo {
+        width: max-content;
+        min-width: max-content;
+    }
+
+    .pagina-gestao .gestao-grupo:not(.fechado) .gestao-submenu {
+        position: static;
+        width: 100%;
+        min-width: 180px;
+        max-width: 80vw;
+        padding: 6px 0 6px 12px;
+        overflow-wrap: anywhere;
+        white-space: normal;
+        border-left: 1px solid #e2e8f0;
+        background: #fff;
+        box-shadow: none;
+    }
+
+    .pagina-gestao .gestao-conteudo {
+        padding: 35px 20px 50px;
+    }
+
+    .pagina-gestao .gestao-boas-vindas {
+        min-height: auto;
+        padding: 30px;
+    }
+
+    .pagina-gestao .gestao-cards {
+        gap: 15px;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVIDADE — CELULARES ESTREITOS
+========================================================== */
+
+@media (max-width: 600px) {
+    .pagina-gestao .gestao-conteudo {
+        padding: 28px 15px 45px;
+    }
+
+    .pagina-gestao .gestao-boas-vindas {
+        padding: 28px 22px;
+    }
+
+    .pagina-gestao .gestao-boas-vindas h1 {
+        font-size: 30px;
+    }
+
+    .pagina-gestao .gestao-boas-icone {
+        display: none;
+    }
+
+    .pagina-gestao .gestao-secao-titulo h2 {
+        font-size: 19px;
+    }
+
+    .pagina-gestao .gestao-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-gestao .gestao-card {
+        min-height: 0;
+        padding: 22px;
+    }
+
+    .pagina-gestao .gestao-form-demo {
+        padding: 18px;
+    }
+
+    .pagina-gestao .gestao-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-gestao .gestao-form-grid .campo-largo {
+        grid-column: auto;
+    }
+
+    .pagina-gestao .gestao-botao-principal {
+        width: 100%;
+    }
+
+    .pagina-gestao .gestao-dicas,
+    .pagina-gestao .gestao-motivacionais {
+        margin-top: 25px;
+    }
+
+    .pagina-gestao .gestao-mensagens,
+    .pagina-gestao .gestao-motivacionais-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .pagina-gestao .gestao-mensagem-card,
+    .pagina-gestao .gestao-motivacional-card {
+        padding: 19px;
+    }
+
+    .pagina-gestao .gestao-mensagem-card h3,
+    .pagina-gestao .gestao-motivacional-card h3 {
+        font-size: 15px;
+    }
+
+    .pagina-gestao .gestao-mensagem-card p,
+    .pagina-gestao .gestao-motivacional-card p {
+        font-size: 13px;
+    }
+}
+
+/* ==========================================================
+   MODAL DE SAÍDA
+   Aplicável caso o HTML da Gestão utilize esse modal.
+========================================================== */
+
+.modal-sair[hidden] {
+    display: none !important;
+}
+
+.modal-sair {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, .68);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-sair-caixa {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    border-radius: 21px;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .2);
+    text-align: center;
+    animation: modalSairEntrada .2s ease-out;
+}
+
+.modal-sair-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 19px;
+    border-radius: 50%;
+    background: #eef2fa;
+    color: #243463;
+    font-size: 24px;
+}
+
+.modal-sair-caixa h2 {
+    margin: 0 0 10px;
+    color: #253463;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.modal-sair-caixa p {
+    margin: 0 0 28px;
+    color: #7a8295;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modal-sair-botoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.modal-sair-botoes button {
+    min-height: 46px;
+    padding: 12px 10px;
+    border: none;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.btn-cancelar-saida {
+    background: #f0f2f6;
+    color: #566071;
+}
+
+.btn-cancelar-saida:hover {
+    background: #e4e8ef;
+}
+
+.btn-confirmar-saida {
+    background: #243160;
+    color: #fff;
+}
+
+.btn-confirmar-saida:hover {
+    background: #182449;
+}
+
+.modal-sair-botoes button:active {
+    transform: scale(.98);
+}
+
+@keyframes modalSairEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-sair-caixa {
+        padding: 28px 22px;
+    }
+
+    .modal-sair-botoes {
+        gap: 9px;
+    }
+}
+
+
+/* ==========================================
+   INFORMAÇÕES INSTITUCIONAIS — VISUAL RENOVADO
+   ========================================== */
+
+.gestao-pagina-ativa .gestao-cabecalho-pagina {
+    position: relative;
+    padding: 30px 32px;
+    margin-bottom: 28px;
+    background: linear-gradient(120deg, #1f2f5c 0%, #30477f 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(31, 47, 92, 0.12);
+}
+
+.gestao-pagina-ativa .gestao-cabecalho-pagina::after {
+    content: "";
+    position: absolute;
+    right: -35px;
+    bottom: -65px;
+    width: 180px;
+    height: 180px;
+    border: 28px solid rgba(255, 255, 255, 0.07);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.gestao-pagina-ativa .gestao-cabecalho-pagina .gestao-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #ffb3b3;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.gestao-pagina-ativa .gestao-cabecalho-pagina h1 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+    line-height: 1.25;
+}
+
+.gestao-pagina-ativa .gestao-cabecalho-pagina p {
+    max-width: 650px;
+    margin: 0;
+    color: #e1e8f8;
+    line-height: 1.7;
+}
+
+/* FORMULÁRIO */
+
+.gestao-pagina-ativa .gestao-form-demo {
+    padding: clamp(20px, 3vw, 32px);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-top: 5px solid #ff3030;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(31, 47, 92, 0.05);
+}
+
+/* TÍTULOS DAS SEÇÕES */
+
+.gestao-pagina-ativa .gestao-titulo-secao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 4px 0 23px;
+}
+
+.gestao-pagina-ativa .gestao-titulo-icone {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 49px;
+    height: 49px;
+    color: #ffffff;
+    background: #1f2f5c;
+    border-radius: 13px;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 10px rgba(31, 47, 92, 0.14);
+}
+
+.gestao-pagina-ativa .gestao-titulo-secao h2 {
+    margin: 0 0 5px;
+    color: #1f2f5c;
+    font-size: 1.12rem;
+    font-weight: 800;
+}
+
+.gestao-pagina-ativa .gestao-titulo-secao p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* CAMPOS */
+
+.gestao-pagina-ativa .gestao-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 21px;
+}
+
+.gestao-pagina-ativa .gestao-form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+    color: #27385f;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.gestao-pagina-ativa .gestao-form-grid label > span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gestao-pagina-ativa .gestao-form-grid label > span i {
+    color: #e52f3b;
+    font-size: 1rem;
+}
+
+.gestao-pagina-ativa .gestao-form-grid .campo-largo {
+    grid-column: 1 / -1;
+}
+
+.gestao-pagina-ativa .gestao-form-grid input,
+.gestao-pagina-ativa .gestao-form-grid textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 13px 15px;
+    color: #263654;
+    background: #f8faff;
+    border: 1px solid #dce3ef;
+    border-radius: 9px;
+    outline: none;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+}
+
+.gestao-pagina-ativa .gestao-form-grid input:focus,
+.gestao-pagina-ativa .gestao-form-grid textarea:focus {
+    background: #ffffff;
+    border-color: #30477f;
+    box-shadow: 0 0 0 4px rgba(48, 71, 127, 0.11);
+}
+
+.gestao-pagina-ativa .gestao-form-grid textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.gestao-pagina-ativa .gestao-form-grid input::placeholder {
+    color: #94a3b8;
+}
+
+/* SEPARAÇÃO DOS GRUPOS */
+
+.gestao-pagina-ativa .gestao-divisor {
+    height: 1px;
+    margin: 32px 0;
+    background: linear-gradient(
+        90deg,
+        #ff3030 0,
+        #e2e8f0 28%,
+        #e2e8f0 100%
+    );
+    border: 0;
+}
+
+/* AVISO */
+
+.gestao-pagina-ativa .gestao-aviso-form {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 27px;
+    padding: 16px 18px;
+    color: #30477f;
+    background: #f0f5ff;
+    border: 1px solid #dbe7ff;
+    border-left: 4px solid #4265a8;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+.gestao-pagina-ativa .gestao-aviso-form > i {
+    margin-top: 4px;
+    color: #4265a8;
+    font-size: 1.1rem;
+}
+
+.gestao-pagina-ativa .gestao-aviso-form p {
+    margin: 0;
+}
+
+/* BOTÃO */
+
+.gestao-pagina-ativa .gestao-acoes-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.gestao-pagina-ativa .gestao-botao-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 47px;
+    padding: 13px 23px;
+    color: #ffffff;
+    background: #1f2f5c;
+    border: 1px solid #1f2f5c;
+    border-radius: 9px;
+    box-shadow: 0 5px 12px rgba(31, 47, 92, 0.16);
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.gestao-pagina-ativa .gestao-botao-principal:hover {
+    background: #e52f3b;
+    border-color: #e52f3b;
+    box-shadow: 0 6px 15px rgba(229, 47, 59, 0.2);
+    transform: translateY(-2px);
+}
+
+.gestao-pagina-ativa .gestao-botao-principal:focus-visible {
+    outline: 3px solid rgba(229, 47, 59, 0.35);
+    outline-offset: 3px;
+}
+
+/* CELULAR E TABLET */
+
+@media (max-width: 700px) {
+    .gestao-pagina-ativa .gestao-cabecalho-pagina {
+        padding: 24px 21px;
+        border-radius: 12px;
+    }
+
+    .gestao-pagina-ativa .gestao-form-demo {
+        padding: 20px 16px;
+    }
+
+    .gestao-pagina-ativa .gestao-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .gestao-pagina-ativa .gestao-form-grid .campo-largo {
+        grid-column: auto;
+    }
+
+    .gestao-pagina-ativa .gestao-titulo-icone {
+        width: 43px;
+        height: 43px;
+    }
+
+    .gestao-pagina-ativa .gestao-titulo-secao {
+        gap: 12px;
+    }
+
+    .gestao-pagina-ativa .gestao-acoes-form {
+        justify-content: stretch;
+    }
+
+    .gestao-pagina-ativa .gestao-botao-principal {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gestao-pagina-ativa .gestao-form-grid input,
+    .gestao-pagina-ativa .gestao-form-grid textarea,
+    .gestao-pagina-ativa .gestao-botao-principal {
+        transition: none;
+    }
+}
+
+
+/* ==========================================
+   CURSOS E MATÉRIAS
+   ========================================== */
+
+.gestao-pagina-ativa .gestao-bloco-listagem {
+    margin-top: 25px;
+}
+
+.gestao-pagina-ativa .gestao-icone-listagem {
+    color: #ffffff;
+    background: #30477f;
+}
+
+.gestao-pagina-ativa .gestao-filtro-cursos {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    max-width: 430px;
+    margin-bottom: 23px;
+}
+
+.gestao-pagina-ativa .gestao-filtro-cursos label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #27385f;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.gestao-pagina-ativa .gestao-filtro-cursos label i {
+    color: #e52f3b;
+}
+
+.gestao-pagina-ativa .gestao-filtro-cursos select,
+.gestao-pagina-ativa .gestao-form-grid select {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 47px;
+    padding: 12px 14px;
+    color: #263654;
+    background: #f8faff;
+    border: 1px solid #dce3ef;
+    border-radius: 9px;
+    font: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+}
+
+.gestao-pagina-ativa .gestao-filtro-cursos select:focus,
+.gestao-pagina-ativa .gestao-form-grid select:focus {
+    background: #ffffff;
+    border-color: #30477f;
+    box-shadow: 0 0 0 4px rgba(48, 71, 127, 0.11);
+}
+
+/* LISTA */
+
+.gestao-pagina-ativa .gestao-lista-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gestao-pagina-ativa .gestao-item-lista {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #30477f;
+    border-radius: 11px;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.gestao-pagina-ativa .gestao-item-lista:hover {
+    border-left-color: #ff3030;
+    box-shadow: 0 5px 15px rgba(31, 47, 92, 0.07);
+    transform: translateY(-1px);
+}
+
+.gestao-pagina-ativa .gestao-item-lista-icone {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    color: #30477f;
+    background: #edf2ff;
+    border-radius: 10px;
+    font-size: 1.05rem;
+}
+
+.gestao-pagina-ativa .gestao-item-lista-conteudo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.gestao-pagina-ativa .gestao-item-curso {
+    color: #64748b;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.gestao-pagina-ativa .gestao-item-lista-conteudo strong {
+    color: #1f2f5c;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* BOTÃO REMOVER */
+
+.gestao-pagina-ativa .gestao-item-lista [data-remover] {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #dc3545;
+    background: #fff1f2;
+    border: 1px solid #ffe0e3;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: color 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.gestao-pagina-ativa .gestao-item-lista [data-remover]:hover {
+    color: #ffffff;
+    background: #dc3545;
+    border-color: #dc3545;
+}
+
+.gestao-pagina-ativa .gestao-item-lista [data-remover]:focus-visible {
+    outline: 3px solid rgba(220, 53, 69, 0.25);
+    outline-offset: 3px;
+}
+
+/* LISTA VAZIA */
+
+.gestao-pagina-ativa .gestao-lista-vazia {
+    margin: 15px 0 0;
+    padding: 23px;
+    color: #64748b;
+    background: #f8faff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.gestao-pagina-ativa .gestao-lista-vazia i {
+    margin-right: 7px;
+    color: #30477f;
+}
+
+.gestao-pagina-ativa .gestao-lista-vazia[hidden] {
+    display: none;
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+    .gestao-pagina-ativa .gestao-item-lista {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista-icone {
+        width: 39px;
+        height: 39px;
+        font-size: 0.95rem;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista-conteudo strong {
+        font-size: 0.88rem;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista [data-remover] {
+        width: 36px;
+        height: 36px;
+    }
+
+    .gestao-pagina-ativa .gestao-filtro-cursos {
+        max-width: none;
+    }
+}
+
+
+/* ==========================================
+   CORPO DOCENTE — GESTÃO
+   ========================================== */
+
+.gestao-pagina-ativa .gestao-professor-avatar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: #30477f;
+    background: #edf2ff;
+    border: 1px solid #dbe5ff;
+    border-radius: 13px;
+    font-size: 1.15rem;
+}
+
+.gestao-pagina-ativa .gestao-professor-detalhe {
+    color: #64748b;
+    font-size: 0.86rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.gestao-pagina-ativa .gestao-item-lista-conteudo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.gestao-pagina-ativa .gestao-item-lista-conteudo strong {
+    color: #1f2f5c;
+    font-size: 0.96rem;
+    overflow-wrap: anywhere;
+}
+
+.gestao-pagina-ativa .gestao-item-lista:hover
+.gestao-professor-avatar {
+    color: #e52f3b;
+    background: #fff1f2;
+    border-color: #ffdadd;
+}
+
+.gestao-pagina-ativa .gestao-item-lista [data-remover] {
+    flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+    .gestao-pagina-ativa .gestao-professor-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 1rem;
+    }
+
+    .gestao-pagina-ativa .gestao-professor-detalhe {
+        font-size: 0.82rem;
+    }
+}
+
+
+/* ==========================================
+   MAIS ESPAÇAMENTO — ÁREA DA GESTÃO
+   ========================================== */
+
+/* Espaço entre o cabeçalho e os blocos */
+.gestao-pagina-ativa .gestao-cabecalho-pagina {
+    margin-bottom: 36px;
+}
+
+/* Separação entre formulários e listagens */
+.gestao-pagina-ativa > .gestao-form-demo {
+    margin-top: 30px;
+    margin-bottom: 34px;
+}
+
+/* Espaço interno dos cartões */
+.gestao-pagina-ativa > .gestao-form-demo {
+    padding: 30px;
+}
+
+/* Distância entre título e campos */
+.gestao-pagina-ativa .gestao-titulo-secao {
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+/* Mais espaço entre os campos */
+.gestao-pagina-ativa .gestao-form-grid {
+    column-gap: 26px;
+    row-gap: 25px;
+}
+
+/* Separação entre rótulos e campos */
+.gestao-pagina-ativa .gestao-form-grid label {
+    gap: 11px;
+}
+
+/* Campos mais confortáveis */
+.gestao-pagina-ativa .gestao-form-grid input,
+.gestao-pagina-ativa .gestao-form-grid select,
+.gestao-pagina-ativa .gestao-form-grid textarea {
+    padding: 15px 16px;
+}
+
+/* Botão afastado dos campos */
+.gestao-pagina-ativa .gestao-acoes-form {
+    margin-top: 30px;
+}
+
+/* Mais distância entre os itens cadastrados */
+.gestao-pagina-ativa .gestao-lista-itens {
+    gap: 17px;
+    margin-top: 8px;
+}
+
+/* Cartões da listagem mais espaçosos */
+.gestao-pagina-ativa .gestao-item-lista {
+    gap: 18px;
+    padding: 20px;
+    margin-bottom: 0;
+}
+
+/* Distância entre o filtro e a listagem */
+.gestao-pagina-ativa .gestao-filtro-cursos {
+    margin-bottom: 28px;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 700px) {
+    .gestao-pagina-ativa .gestao-cabecalho-pagina {
+        margin-bottom: 25px;
+    }
+
+    .gestao-pagina-ativa > .gestao-form-demo {
+        margin-top: 24px;
+        margin-bottom: 26px;
+        padding: 23px 19px;
+    }
+
+    .gestao-pagina-ativa .gestao-titulo-secao {
+        gap: 13px;
+        margin-bottom: 24px;
+    }
+
+    .gestao-pagina-ativa .gestao-form-grid {
+        row-gap: 21px;
+    }
+
+    .gestao-pagina-ativa .gestao-acoes-form {
+        margin-top: 25px;
+    }
+
+    .gestao-pagina-ativa .gestao-lista-itens {
+        gap: 13px;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista {
+        gap: 12px;
+        padding: 15px;
+    }
+}
+
+
+
+
+
+
+/* ==========================================================
+   GERENCIAMENTO DE SISTEMAS DE TCC
+========================================================== */
+
+/* FORMULÁRIO */
+
+body.pagina-gestao #formTCC {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 35px;
+    padding: 28px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 6px 22px rgba(24, 45, 90, .05);
+}
+
+body.pagina-gestao #formTCC h2 {
+    margin: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #edf0f5;
+    color: #1f2f5c;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+body.pagina-gestao #formTCC .gestao-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+body.pagina-gestao #formTCC .gestao-form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+    color: #1f2f5c;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+body.pagina-gestao #formTCC .gestao-form-grid .campo-largo {
+    grid-column: 1 / -1;
+}
+
+body.pagina-gestao #formTCC input:not([type="file"]),
+body.pagina-gestao #formTCC textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    border: 1px solid #dce3ed;
+    border-radius: 9px;
+    outline: none;
+    background: #f8f9fc;
+    color: #182d5a;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+body.pagina-gestao #formTCC input:not([type="file"]) {
+    min-height: 46px;
+}
+
+body.pagina-gestao #formTCC textarea {
+    min-height: 115px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+body.pagina-gestao #formTCC input:focus,
+body.pagina-gestao #formTCC textarea:focus {
+    border-color: #1f2f5c;
+    box-shadow: 0 0 0 3px rgba(31, 47, 92, .09);
+    background: #fff;
+}
+
+body.pagina-gestao #formTCC input::placeholder,
+body.pagina-gestao #formTCC textarea::placeholder {
+    color: #94a3b8;
+}
+
+body.pagina-gestao #formTCC .gestao-form-grid small {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* ARQUIVO */
+
+body.pagina-gestao #formTCC input[type="file"] {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 9px;
+    background: #f8f9fc;
+    color: #64748b;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+body.pagina-gestao #formTCC input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 9px 13px;
+    border: none;
+    border-radius: 7px;
+    background: #1f2f5c;
+    color: #fff;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* MENSAGEM DO FORMULÁRIO */
+
+body.pagina-gestao #formTCC #mensagemTCC {
+    padding: 12px 15px;
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+    background: #fff5f5;
+    color: #b4232d;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+body.pagina-gestao #formTCC #mensagemTCC[hidden] {
+    display: none !important;
+}
+
+/* BOTÕES DO FORMULÁRIO */
+
+body.pagina-gestao #formTCC #btnSalvarTCC,
+body.pagina-gestao #formTCC #btnCancelarTCC {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: fit-content;
+    min-width: 175px;
+    min-height: 44px;
+    padding: 11px 20px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+body.pagina-gestao #formTCC #btnSalvarTCC {
+    border: 1px solid #1f2f5c;
+    background: #1f2f5c;
+    color: #fff;
+}
+
+body.pagina-gestao #formTCC #btnSalvarTCC:hover {
+    border-color: #ff3030;
+    background: #ff3030;
+}
+
+body.pagina-gestao #formTCC #btnCancelarTCC {
+    border: 1px solid #e2e8f0;
+    background: #f1f5f9;
+    color: #475569;
+}
+
+body.pagina-gestao #formTCC #btnCancelarTCC:hover {
+    border-color: #cbd5e1;
+    background: #e2e8f0;
+}
+
+body.pagina-gestao #formTCC #btnCancelarTCC[hidden] {
+    display: none !important;
+}
+
+/* TÍTULO E DESCRIÇÃO DA LISTA */
+
+body.pagina-gestao .gestao-lista-secao {
+    margin: 38px 0 30px;
+}
+
+body.pagina-gestao .gestao-lista-secao h2 {
+    margin: 0 0 8px;
+    color: #1f2f5c;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+body.pagina-gestao .gestao-lista-secao > p {
+    margin: 0 0 20px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* LISTA */
+
+body.pagina-gestao #listaTCCs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* ITEM CADASTRADO */
+
+body.pagina-gestao .gestao-item-tcc {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(24, 45, 90, .035);
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+body.pagina-gestao .gestao-item-tcc:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 7px 22px rgba(24, 45, 90, .07);
+}
+
+/* LOGO */
+
+body.pagina-gestao .gestao-tcc-logo {
+    display: block;
+    flex: 0 0 94px;
+    width: 94px;
+    height: 94px;
+    max-width: 94px;
+    padding: 8px;
+    border: 1px solid #e8edf3;
+    border-radius: 12px;
+    background: #f8f9fc;
+    object-fit: contain;
+}
+
+body.pagina-gestao .gestao-tcc-logo[hidden] {
+    display: none !important;
+}
+
+/* INFORMAÇÕES */
+
+body.pagina-gestao .gestao-item-lista-conteudo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+body.pagina-gestao .gestao-item-lista-conteudo strong {
+    color: #1f2f5c;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+body.pagina-gestao .gestao-item-lista-conteudo p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+body.pagina-gestao .gestao-tcc-dominio {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    color: #1f2f5c;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+body.pagina-gestao .gestao-tcc-dominio:hover {
+    color: #ff3030;
+    text-decoration: underline;
+}
+
+/* STATUS */
+
+body.pagina-gestao .gestao-item-tcc .gestao-professor-detalhe {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* AÇÕES */
+
+body.pagina-gestao .gestao-item-tcc .gestao-acoes-disciplina {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+}
+
+body.pagina-gestao .gestao-item-tcc .gestao-acoes-disciplina button {
+    min-width: 105px;
+    min-height: 36px;
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #1f2f5c;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+body.pagina-gestao .gestao-item-tcc .gestao-acoes-disciplina button:hover {
+    border-color: #1f2f5c;
+    background: #1f2f5c;
+    color: #fff;
+}
+
+body.pagina-gestao .gestao-item-tcc .gestao-acoes-disciplina button:focus-visible,
+body.pagina-gestao #formTCC button:focus-visible {
+    outline: 3px solid rgba(255, 48, 48, .25);
+    outline-offset: 2px;
+}
+
+/* ESTADO VAZIO */
+
+body.pagina-gestao .gestao-lista-vazia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 38px 20px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 13px;
+    background: #fff;
+    color: #64748b;
+    text-align: center;
+}
+
+body.pagina-gestao .gestao-lista-vazia i {
+    color: #1f2f5c;
+    font-size: 30px;
+}
+
+body.pagina-gestao .gestao-lista-vazia p {
+    max-width: 420px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 760px) {
+    body.pagina-gestao #formTCC {
+        padding: 22px;
+    }
+
+    body.pagina-gestao .gestao-item-tcc {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    body.pagina-gestao .gestao-item-tcc .gestao-item-lista-conteudo {
+        flex-basis: calc(100% - 110px);
+    }
+
+    body.pagina-gestao .gestao-item-tcc .gestao-acoes-disciplina {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    body.pagina-gestao .gestao-item-tcc .gestao-acoes-disciplina button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 520px) {
+    body.pagina-gestao #formTCC {
+        padding: 18px;
+    }
+
+    body.pagina-gestao #formTCC .gestao-form-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    body.pagina-gestao #formTCC .gestao-form-grid .campo-largo {
+        grid-column: auto;
+    }
+
+    body.pagina-gestao #formTCC #btnSalvarTCC,
+    body.pagina-gestao #formTCC #btnCancelarTCC {
+        width: 100%;
+    }
+
+    body.pagina-gestao .gestao-item-tcc {
+        padding: 17px;
+    }
+
+    body.pagina-gestao .gestao-tcc-logo {
+        flex-basis: 76px;
+        width: 76px;
+        height: 76px;
+    }
+
+    body.pagina-gestao .gestao-item-tcc .gestao-item-lista-conteudo {
+        flex-basis: 100%;
+    }
+
+    body.pagina-gestao .gestao-item-tcc .gestao-acoes-disciplina button {
+        min-width: 0;
+    }
+}
+
+/* MODAL DE EXCLUSÃO DE GRADE CURRICULAR */
+.gestao-modal-exclusao-grade {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(3px);
+}
+
+.gestao-modal-exclusao-grade[hidden] {
+    display: none;
+}
+
+.gestao-modal-exclusao-conteudo {
+    width: 100%;
+    max-width: 440px;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    animation: aparecerModalGrade 0.2s ease;
+}
+
+.gestao-modal-exclusao-icone {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff1f1;
+    color: #e30613;
+    font-size: 25px;
+}
+
+.gestao-modal-exclusao-conteudo h2 {
+    margin: 0 0 12px;
+    color: #1f2f5c;
+    font-size: 21px;
+}
+
+.gestao-modal-exclusao-conteudo p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.gestao-modal-exclusao-acoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.gestao-modal-exclusao-acoes button {
+    min-height: 42px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#cancelarExclusaoGrade {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+#cancelarExclusaoGrade:hover {
+    background: #e2e8f0;
+}
+
+#confirmarExclusaoGrade {
+    background: #e30613;
+    color: #ffffff;
+}
+
+#confirmarExclusaoGrade:hover {
+    background: #c5000b;
+}
+
+#confirmarExclusaoGrade:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@keyframes aparecerModalGrade {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .gestao-modal-exclusao-conteudo {
+        padding: 25px 20px;
+    }
+
+    .gestao-modal-exclusao-acoes {
+        flex-direction: column-reverse;
+    }
+
+    .gestao-modal-exclusao-acoes button {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================
+   APROFUNDAMENTO DOS CURSOS
+   FORMULÁRIO DE CADASTRO DE MATERIAIS
+========================================== */
+
+#formGradeCurricular {
+    padding: 30px;
+    margin-bottom: 28px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 5px 18px rgba(24, 45, 90, 0.05);
+}
+
+#formGradeCurricular .gestao-titulo-secao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+#formGradeCurricular .gestao-titulo-secao h2 {
+    margin: 0 0 6px;
+    color: #1f2f5c;
+    font-size: 20px;
+    font-weight: 750;
+}
+
+#formGradeCurricular .gestao-titulo-secao p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+#formGradeCurricular .gestao-titulo-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #eef2ff;
+    color: #1f2f5c;
+    font-size: 20px;
+}
+
+#formGradeCurricular .gestao-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+#formGradeCurricular .gestao-form-grid > label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    color: #1f2f5c;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#formGradeCurricular .gestao-form-grid > label > span,
+#formGradeCurricular fieldset legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1f2f5c;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+#formGradeCurricular .gestao-form-grid > label > span i,
+#formGradeCurricular fieldset legend i {
+    color: #ff3030;
+    font-size: 14px;
+}
+
+#formGradeCurricular .gestao-form-grid select,
+#formGradeCurricular .gestao-form-grid input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 15px;
+    border: 1px solid #dbe2ed;
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff;
+    color: #182d5a;
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#formGradeCurricular .gestao-form-grid select:focus,
+#formGradeCurricular .gestao-form-grid input[type="text"]:focus {
+    border-color: #1f2f5c;
+    box-shadow: 0 0 0 3px rgba(31, 47, 92, 0.09);
+}
+
+/* CAMPO DAS SÉRIES */
+
+#formGradeCurricular fieldset.campo-largo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8f9fc;
+}
+
+#formGradeCurricular fieldset legend {
+    padding: 0 7px;
+}
+
+#formGradeCurricular fieldset > p {
+    flex-basis: 100%;
+    margin: 0 0 4px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#formGradeCurricular fieldset > label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 105px;
+    padding: 12px 15px;
+    border: 1px solid #dbe2ed;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #1f2f5c;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+#formGradeCurricular fieldset > label:hover {
+    border-color: #1f2f5c;
+    background: #f1f4fb;
+}
+
+#formGradeCurricular fieldset input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    min-height: auto;
+    margin: 0;
+    accent-color: #1f2f5c;
+    cursor: pointer;
+}
+
+/* CAMPOS QUE OCUPAM A LINHA INTEIRA */
+
+#formGradeCurricular .campo-largo {
+    grid-column: 1 / -1;
+}
+
+/* ENVIO DO PDF */
+
+#formGradeCurricular input[type="file"] {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px dashed #b9c5d8;
+    border-radius: 10px;
+    background: #f8f9fc;
+    color: #64748b;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#formGradeCurricular input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 9px 14px;
+    border: 0;
+    border-radius: 7px;
+    background: #1f2f5c;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+#formGradeCurricular input[type="file"]::file-selector-button:hover {
+    background: #ff3030;
+}
+
+#formGradeCurricular [data-preview-output="aprofundamento"] {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* AVISO INFORMATIVO */
+
+#formGradeCurricular .gestao-aviso-form {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 15px 17px;
+    border: 1px solid #dbe5f5;
+    border-radius: 10px;
+    background: #f5f7fc;
+    color: #1f2f5c;
+}
+
+#formGradeCurricular .gestao-aviso-form > i {
+    margin-top: 2px;
+    color: #1f2f5c;
+    font-size: 16px;
+}
+
+#formGradeCurricular .gestao-aviso-form p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* BOTÃO */
+
+#formGradeCurricular .gestao-acoes-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+#formGradeCurricular .gestao-botao-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 46px;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 9px;
+    background: #1f2f5c;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#formGradeCurricular .gestao-botao-principal:hover {
+    background: #ff3030;
+    transform: translateY(-1px);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+    #formGradeCurricular {
+        padding: 20px;
+    }
+
+    #formGradeCurricular .gestao-form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #formGradeCurricular .campo-largo {
+        grid-column: 1;
+    }
+
+    #formGradeCurricular fieldset.campo-largo {
+        align-items: stretch;
+    }
+
+    #formGradeCurricular fieldset > label {
+        flex: 1 1 100%;
+    }
+
+    #formGradeCurricular .gestao-acoes-form {
+        justify-content: stretch;
+    }
+
+    #formGradeCurricular .gestao-botao-principal {
+        width: 100%;
+    }
+}
+
+/* ==========================================================
+   BOTÕES DE AÇÕES — CURSOS E MATÉRIAS
+========================================================== */
+
+.gestao-acoes-disciplina {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.gestao-acoes-disciplina .gestao-botao-editar-disciplina,
+.gestao-acoes-disciplina .gestao-botao-desativar-disciplina {
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* EDITAR */
+.gestao-acoes-disciplina .gestao-botao-editar-disciplina {
+    color: #1f2f5c;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+}
+
+.gestao-acoes-disciplina .gestao-botao-editar-disciplina:hover {
+    background: #1f2f5c;
+    color: #ffffff;
+    border-color: #1f2f5c;
+}
+
+/* DESATIVAR */
+.gestao-acoes-disciplina .gestao-botao-desativar-disciplina {
+    color: #e30613;
+    background: #fff5f5;
+    border: 1px solid #ffb4b4;
+}
+
+.gestao-acoes-disciplina .gestao-botao-desativar-disciplina:hover {
+    color: #ffffff;
+    background: #e30613;
+    border-color: #e30613;
+}
+
+.gestao-acoes-disciplina button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   BOTÕES DE AÇÕES — CORPO DOCENTE
+========================================================== */
+
+.gestao-acoes-professor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.gestao-acoes-professor button {
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* EDITAR */
+.gestao-acoes-professor [data-editar-professor] {
+    color: #1f2f5c;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+}
+
+.gestao-acoes-professor [data-editar-professor]:hover {
+    color: #ffffff;
+    background: #1f2f5c;
+    border-color: #1f2f5c;
+}
+
+/* DESATIVAR E EXCLUIR */
+.gestao-acoes-professor [data-desativar-professor],
+.gestao-acoes-professor [data-excluir-professor] {
+    color: #e30613;
+    background: #fff5f5;
+    border: 1px solid #ffb4b4;
+}
+
+.gestao-acoes-professor [data-desativar-professor]:hover,
+.gestao-acoes-professor [data-excluir-professor]:hover {
+    color: #ffffff;
+    background: #e30613;
+    border-color: #e30613;
+}
+
+/* REATIVAR */
+.gestao-acoes-professor [data-reativar-professor] {
+    color: #15803d;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+.gestao-acoes-professor [data-reativar-professor]:hover {
+    color: #ffffff;
+    background: #15803d;
+    border-color: #15803d;
+}
+
+/* DESABILITADO */
+.gestao-acoes-professor button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   BOTÕES DE AÇÕES — INFRAESTRUTURA
+========================================================== */
+
+.gestao-acoes-infraestrutura {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.gestao-acoes-infraestrutura button {
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* EDITAR */
+.gestao-acoes-infraestrutura [data-editar-infraestrutura] {
+    color: #1f2f5c;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+}
+
+.gestao-acoes-infraestrutura [data-editar-infraestrutura]:hover {
+    color: #ffffff;
+    background: #1f2f5c;
+    border-color: #1f2f5c;
+}
+
+/* DESATIVAR E EXCLUIR */
+.gestao-acoes-infraestrutura [data-desativar-infraestrutura],
+.gestao-acoes-infraestrutura [data-excluir-infraestrutura] {
+    color: #e30613;
+    background: #fff5f5;
+    border: 1px solid #ffb4b4;
+}
+
+.gestao-acoes-infraestrutura [data-desativar-infraestrutura]:hover,
+.gestao-acoes-infraestrutura [data-excluir-infraestrutura]:hover {
+    color: #ffffff;
+    background: #e30613;
+    border-color: #e30613;
+}
+
+/* REATIVAR */
+.gestao-acoes-infraestrutura [data-reativar-infraestrutura] {
+    color: #15803d;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+.gestao-acoes-infraestrutura [data-reativar-infraestrutura]:hover {
+    color: #ffffff;
+    background: #15803d;
+    border-color: #15803d;
+}
+
+/* DESABILITADO */
+.gestao-acoes-infraestrutura button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   PADRÃO DE CAMPOS DE ENVIO DE ARQUIVO — GESTÃO
+========================================================== */
+
+.pagina-gestao input[type="file"].gestao-input-arquivo {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px dashed #b9c5d8;
+    border-radius: 10px;
+    background: #f8f9fc;
+    color: #64748b;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.pagina-gestao input[type="file"].gestao-input-arquivo::file-selector-button {
+    margin-right: 12px;
+    padding: 9px 14px;
+    border: 0;
+    border-radius: 7px;
+    background: #1f2f5c;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pagina-gestao input[type="file"].gestao-input-arquivo::file-selector-button:hover {
+    background: #ff3030;
+}
+
+/* ==========================================================
+   DOCUMENTO ATUAL — NORMAS E REGRAS
+========================================================== */
+
+.gestao-documento-atual {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(31, 47, 92, 0.04);
+}
+
+.normas-documento-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.normas-documento-icone {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff1f1;
+    color: #e30613;
+    border-radius: 12px;
+    font-size: 25px;
+}
+
+.normas-documento-identificacao {
+    min-width: 0;
+}
+
+.normas-documento-categoria {
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.normas-documento-identificacao h3 {
+    margin: 5px 0 10px;
+    color: #1f2f5c;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.normas-documento-informacoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+}
+
+.normas-documento-informacoes > span:first-child {
+    color: #64748b;
+}
+
+.normas-documento-informacoes i {
+    margin-right: 4px;
+}
+
+.normas-status-provisorio,
+.normas-status-definitivo {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.normas-status-provisorio {
+    color: #b45309;
+    background: #fef3c7;
+}
+
+.normas-status-definitivo {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.normas-documento-descricao {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.normas-documento-descricao p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.normas-documento-aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 14px;
+    background: #fff8eb;
+    border: 1px solid #f5d9a8;
+    border-radius: 9px;
+    color: #a16207;
+}
+
+.normas-documento-aviso i {
+    margin-top: 3px;
+}
+
+.normas-documento-aviso p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.normas-documento-rodape {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 22px;
+}
+
+.normas-documento-rodape a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 17px;
+    background: #1f2f5c;
+    color: #ffffff;
+    border: 1px solid #1f2f5c;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.normas-documento-rodape a:hover {
+    background: #e30613;
+    border-color: #e30613;
+}
+
+@media (max-width: 600px) {
+    .gestao-documento-atual {
+        padding: 17px;
+    }
+
+    .normas-documento-cabecalho {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .normas-documento-icone {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        font-size: 20px;
+    }
+
+    .normas-documento-identificacao h3 {
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================================
+   GRADES CURRICULARES — MATERIAIS CADASTRADOS
+===================================================== */
+
+.pagina-gestao .gestao-grupo-grades {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.pagina-gestao .gestao-grupo-grades > h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding-bottom: 12px;
+    color: #1f2f5c;
+    font-size: 1rem;
+    font-weight: 750;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pagina-gestao .gestao-grupo-grades > h3 i {
+    color: #30477f;
+}
+
+.pagina-gestao .gestao-lista-grades {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pagina-gestao .gestao-item-grade {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+    padding: 17px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #30477f;
+    border-radius: 11px;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.pagina-gestao .gestao-item-grade:hover {
+    border-left-color: #ff3030;
+    box-shadow: 0 5px 15px rgba(31, 47, 92, 0.07);
+    transform: translateY(-1px);
+}
+
+.pagina-gestao .gestao-grade-icone {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    color: #30477f;
+    background: #edf2ff;
+    border-radius: 10px;
+    font-size: 1.15rem;
+}
+
+.pagina-gestao .gestao-grade-informacoes {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.pagina-gestao .gestao-grade-informacoes strong {
+    color: #1f2f5c;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.pagina-gestao .gestao-grade-series {
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* BOTÕES */
+
+.pagina-gestao .gestao-acoes-grade {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pagina-gestao .gestao-acoes-grade button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 36px;
+    padding: 8px 11px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.pagina-gestao .gestao-grade-visualizar {
+    color: #1f2f5c;
+    background: #edf2ff;
+    border-color: #dbe5fa !important;
+}
+
+.pagina-gestao .gestao-grade-visualizar:hover {
+    color: #ffffff;
+    background: #1f2f5c;
+}
+
+.pagina-gestao .gestao-grade-substituir {
+    color: #805b13;
+    background: #fff8e7;
+    border-color: #f4e5bd !important;
+}
+
+.pagina-gestao .gestao-grade-substituir:hover {
+    color: #ffffff;
+    background: #a87919;
+}
+
+.pagina-gestao .gestao-grade-excluir {
+    color: #dc3545;
+    background: #fff1f2;
+    border-color: #ffe0e3 !important;
+}
+
+.pagina-gestao .gestao-grade-excluir:hover {
+    color: #ffffff;
+    background: #dc3545;
+}
+
+.pagina-gestao .gestao-acoes-grade button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 760px) {
+    .pagina-gestao .gestao-item-grade {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .pagina-gestao .gestao-grade-informacoes {
+        flex: 1;
+    }
+
+    .pagina-gestao .gestao-acoes-grade {
+        width: 100%;
+        padding-top: 10px;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .pagina-gestao .gestao-acoes-grade button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 420px) {
+    .pagina-gestao .gestao-grade-icone {
+        width: 40px;
+        height: 40px;
+    }
+
+    .pagina-gestao .gestao-acoes-grade {
+        flex-direction: column;
+    }
+
+    .pagina-gestao .gestao-acoes-grade button {
+        width: 100%;
+    }
+}
+
+
+
+/* ==========================================================
+   CORREÇÃO DEFINITIVA DOS BOTÕES DOS SISTEMAS DE TCC
+========================================================== */
+
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+    min-width: 96px !important;
+}
+
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 96px !important;
+    min-width: 96px !important;
+    min-height: 34px !important;
+    padding: 6px 10px !important;
+    border-radius: 7px !important;
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+    transition: .2s ease !important;
+}
+
+/* EDITAR */
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button[data-editar-tcc] {
+    background: #edf2fc !important;
+    border: 1px solid #d5def0 !important;
+    color: #1f2f5c !important;
+}
+
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button[data-editar-tcc]:hover {
+    background: #1f2f5c !important;
+    border-color: #1f2f5c !important;
+    color: #fff !important;
+}
+
+/* DESATIVAR */
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button[data-desativar-tcc] {
+    background: #fff8e8 !important;
+    border: 1px solid #f0dfb8 !important;
+    color: #946200 !important;
+}
+
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button[data-desativar-tcc]:hover {
+    background: #946200 !important;
+    border-color: #946200 !important;
+    color: #fff !important;
+}
+
+/* REATIVAR */
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button[data-reativar-tcc] {
+    background: #effaf3 !important;
+    border: 1px solid #cce8d7 !important;
+    color: #247443 !important;
+}
+
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button[data-reativar-tcc]:hover {
+    background: #247443 !important;
+    border-color: #247443 !important;
+    color: #fff !important;
+}
+
+/* EXCLUIR */
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button[data-excluir-tcc] {
+    background: #fff1f1 !important;
+    border: 1px solid #f1cccc !important;
+    color: #c62828 !important;
+}
+
+body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button[data-excluir-tcc]:hover {
+    background: #c62828 !important;
+    border-color: #c62828 !important;
+    color: #fff !important;
+}
+
+/* CELULAR */
+@media (max-width: 760px) {
+    body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+    }
+
+    body.pagina-gestao #listaTCCs .gestao-item-tcc .gestao-acoes-disciplina button {
+        flex: 1 !important;
+        width: auto !important;
+        min-width: 85px !important;
+    }
+}
+
+
+
+/* ==========================================================
+   ACESSOS DOS PROFESSORES
+========================================================== */
+
+/* FORMULÁRIO DE CADASTRO */
+
+.gestao-pagina #formAcessoProfessor {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    padding: 32px;
+    margin-top: 24px;
+    box-sizing: border-box;
+}
+
+.gestao-pagina #formAcessoProfessor .gestao-titulo-secao,
+.gestao-pagina #formAcessoProfessor .gestao-form-acoes {
+    grid-column: 1 / -1;
+}
+
+.gestao-pagina #formAcessoProfessor .gestao-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.gestao-pagina #formAcessoProfessor .gestao-campo label {
+    color: #182d5a;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.gestao-pagina #formAcessoProfessor input,
+.gestao-pagina #formAcessoProfessor select {
+    width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    background: #fff;
+    color: #182d5a;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.gestao-pagina #formAcessoProfessor input:focus,
+.gestao-pagina #formAcessoProfessor select:focus {
+    outline: none;
+    border-color: #263d78;
+    box-shadow: 0 0 0 3px rgba(38, 61, 120, .10);
+}
+
+/* BOTÕES */
+
+.gestao-pagina #formAcessoProfessor .gestao-form-acoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.gestao-pagina #formAcessoProfessor .gestao-btn-principal,
+.gestao-pagina #formAcessoProfessor .gestao-btn-secundario {
+    min-height: 45px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.gestao-pagina #formAcessoProfessor .gestao-btn-principal {
+    background: #ff3030;
+    color: #fff;
+}
+
+.gestao-pagina #formAcessoProfessor .gestao-btn-principal:hover {
+    background: #e30613;
+    transform: translateY(-1px);
+}
+
+.gestao-pagina #formAcessoProfessor .gestao-btn-secundario {
+    background: #eef1f7;
+    color: #1f2f5c;
+}
+
+.gestao-pagina #formAcessoProfessor .gestao-btn-secundario:hover {
+    background: #dfe5f0;
+}
+
+/* LISTAGEM DE ACESSOS */
+
+/* ==========================================================
+   LISTAGEM DE ACESSOS DOS PROFESSORES
+========================================================== */
+
+.gestao-pagina .gestao-bloco-listagem {
+    width: 100%;
+    min-width: 0;
+    margin-top: 30px;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.gestao-pagina #listaAcessosProfessores {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+    margin-top: 24px;
+}
+
+/* CARTÃO */
+
+.gestao-pagina .gestao-acesso-card {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+    min-width: 0;
+    padding: 24px 28px;
+    box-sizing: border-box;
+
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #263d78;
+    border-radius: 13px;
+    background: #fff;
+
+    transition: transform .2s, box-shadow .2s;
+}
+
+.gestao-pagina .gestao-acesso-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(31, 47, 92, .07);
+}
+
+/* CABEÇALHO E NOME */
+
+.gestao-pagina .gestao-acesso-cabecalho {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.gestao-pagina .gestao-acesso-nome {
+    display: block;
+    flex: 1 1 250px;
+    width: 100%;
+    max-width: none !important;
+    min-width: 0;
+
+    margin: 0;
+    color: #182d5a;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.5;
+
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word;
+    writing-mode: horizontal-tb;
+}
+
+/* STATUS */
+
+.gestao-pagina .gestao-acesso-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+
+    width: fit-content;
+    max-width: 100%;
+    padding: 8px 13px;
+
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.gestao-pagina .gestao-acesso-status.ativo {
+    background: #e8f7ee;
+    color: #168044;
+}
+
+.gestao-pagina .gestao-acesso-status.inativo {
+    background: #fff0f0;
+    color: #c62828;
+}
+
+/* MATRÍCULA E E-MAIL */
+
+.gestao-pagina .gestao-acesso-detalhes {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+}
+
+.gestao-pagina .gestao-acesso-detalhes > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+.gestao-pagina .gestao-acesso-detalhes strong {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.gestao-pagina .gestao-acesso-detalhes span {
+    display: block;
+    max-width: 100%;
+    color: #182d5a;
+    font-size: 14px;
+    line-height: 1.6;
+
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+
+/* LISTA VAZIA */
+
+.gestao-pagina #mensagemAcessosVazios {
+    margin-top: 20px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* TABLETS E CELULARES */
+
+@media (max-width: 700px) {
+    .gestao-pagina .gestao-bloco-listagem {
+        padding: 22px;
+    }
+
+    .gestao-pagina .gestao-acesso-card {
+        padding: 20px;
+        gap: 18px;
+    }
+
+    .gestao-pagina .gestao-acesso-detalhes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .gestao-pagina .gestao-acesso-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .gestao-pagina .gestao-acesso-nome {
+        flex: none;
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+/* CELULARES ESTREITOS */
+
+@media (max-width: 480px) {
+    .gestao-pagina .gestao-bloco-listagem {
+        padding: 16px;
+    }
+
+    .gestao-pagina .gestao-acesso-card {
+        padding: 17px;
+    }
+
+    .gestao-pagina .gestao-acesso-nome {
+        font-size: 15px;
+    }
+
+    .gestao-pagina .gestao-acesso-detalhes span {
+        font-size: 13px;
+    }
+}
+
+
+*// -------------------------------------------------------------------//
+
+
+
+.gestao-acoes-disciplina {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.gestao-botao-excluir-disciplina {
+    padding: 9px 13px;
+    border: 1px solid #fecaca;
+    border-radius: 7px;
+    background: #fff0f0;
+    color: #d62828;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.gestao-botao-excluir-disciplina:hover {
+    background: #ffdddd;
+    border-color: #fca5a5;
+}
+
+.gestao-botao-excluir-disciplina:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .gestao-acoes-disciplina {
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
+
+
+
+#btnCancelarEdicao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 20px;
+    min-height: 44px;
+
+    background: #f1f5f9;
+    color: #475569;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#btnCancelarEdicao:hover {
+    background: #e2e8f0;
+    color: #1f2f5c;
+    border-color: #cbd5e1;
+}
+
+#btnCancelarEdicao:active {
+    transform: scale(0.98);
+}
+
+#btnCancelarEdicao[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   RESPONSIVIDADE DAS LISTAGENS DA GESTÃO
+========================================= */
+
+/* Evita que o conteúdo ultrapasse os blocos */
+.gestao-pagina-ativa .gestao-bloco-listagem,
+.gestao-pagina-ativa .gestao-lista-itens,
+.gestao-pagina-ativa #listaInfraestrutura {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.gestao-pagina-ativa .gestao-item-lista {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.gestao-pagina-ativa .gestao-item-lista-conteudo {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.gestao-pagina-ativa .gestao-item-lista-conteudo strong {
+    max-width: 100%;
+}
+
+/* Imagens e conteúdos da infraestrutura */
+.gestao-pagina-ativa #listaInfraestrutura img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.gestao-pagina-ativa #listaInfraestrutura > * {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Tablets e celulares */
+@media (max-width: 700px) {
+    .gestao-pagina-ativa .gestao-bloco-listagem {
+        padding: 16px;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista {
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista-conteudo {
+        flex: 1 1 auto;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista [data-remover] {
+        flex: 0 0 36px;
+    }
+
+    .gestao-pagina-ativa #listaInfraestrutura {
+        overflow-x: hidden;
+    }
+}
+
+/* Celulares estreitos */
+@media (max-width: 480px) {
+    .gestao-pagina-ativa .gestao-titulo-secao {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .gestao-pagina-ativa .gestao-titulo-secao > div:last-child {
+        min-width: 0;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista-icone {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista-conteudo strong {
+        font-size: 0.84rem;
+    }
+
+    .gestao-pagina-ativa #listaInfraestrutura img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* CORREÇÃO DOS CARTÕES E BOTÕES DE AÇÃO */
+
+.gestao-pagina-ativa .gestao-item-lista {
+    display: grid;
+    grid-template-columns: 45px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+/* Conteúdo */
+.gestao-pagina-ativa .gestao-item-lista-conteudo {
+    min-width: 0;
+    width: 100%;
+}
+
+/* Área dos botões */
+.gestao-pagina-ativa .gestao-acoes-disciplina,
+.gestao-pagina-ativa .gestao-acoes-professor,
+.gestao-pagina-ativa .gestao-acoes-infraestrutura {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    min-width: max-content;
+    flex-shrink: 0;
+}
+
+/* Botões */
+.gestao-pagina-ativa .gestao-item-lista button {
+    flex-shrink: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+/* Telas menores */
+@media (max-width: 700px) {
+    .gestao-pagina-ativa .gestao-item-lista {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 10px;
+        overflow: visible;
+    }
+
+    .gestao-pagina-ativa .gestao-acoes-disciplina,
+    .gestao-pagina-ativa .gestao-acoes-professor,
+    .gestao-pagina-ativa .gestao-acoes-infraestrutura {
+        grid-column: 1 / -1;
+        width: 100%;
+        min-width: 0;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding-top: 8px;
+    }
+
+    .gestao-pagina-ativa .gestao-item-lista button {
+        min-height: 36px;
+        padding: 8px 12px;
+    }
+}
+
+/* IMAGENS DOS AMBIENTES CADASTRADOS */
+
+.gestao-pagina-ativa #listaInfraestrutura img {
+    display: block;
+    width: 110px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
+    border-radius: 9px;
+    margin-top: 10px;
+}
+
+/* Organização do cartão de infraestrutura */
+@media (max-width: 700px) {
+
+    .gestao-pagina-ativa #listaInfraestrutura > * {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .gestao-pagina-ativa #listaInfraestrutura img {
+        width: 95px;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        margin-top: 10px;
+    }
+}
+
+
+/* BOTÃO CANCELAR EDIÇÃO - CORPO DOCENTE */
+#formProfessor #btnCancelarEdicaoProfessor:not([hidden]) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 162px;
+    height: 53px;
+    padding: 0 20px;
+
+    background-color: #e2e8f0 !important;
+    color: #182d5a !important;
+
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 9px !important;
+
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+
+    cursor: pointer;
+    box-shadow: none !important;
+
+    transition: background-color 0.2s ease;
+}
+
+#formProfessor #btnCancelarEdicaoProfessor:not([hidden]):hover {
+    background-color: #d7e0eb !important;
+}
+
+/* Mantém o botão oculto antes da edição */
+#formProfessor #btnCancelarEdicaoProfessor[hidden] {
+    display: none !important;
+}
+
+
+
+/* BOTÃO CANCELAR EDIÇÃO - INFRAESTRUTURA */
+#formInfraestrutura #btnCancelarInfraestrutura:not([hidden]) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 162px;
+    height: 53px;
+    padding: 0 20px;
+
+    background-color: #e2e8f0 !important;
+    color: #182d5a !important;
+
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 9px !important;
+
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+
+    cursor: pointer;
+    box-shadow: none !important;
+
+    transition: background-color 0.2s ease;
+}
+
+#formInfraestrutura #btnCancelarInfraestrutura:not([hidden]):hover {
+    background-color: #d7e0eb !important;
+}
+
+/* MANTÉM OCULTO ANTES DA EDIÇÃO */
+#formInfraestrutura #btnCancelarInfraestrutura[hidden] {
+    display: none !important;
+}
+
+
+/* RESPONSIVIDADE DOS BOTÕES - CORPO DOCENTE E INFRAESTRUTURA */
+@media (max-width: 600px) {
+
+    #formProfessor .gestao-acoes-form,
+    #formInfraestrutura .gestao-acoes-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+    #formProfessor .gestao-acoes-form button,
+    #formInfraestrutura .gestao-acoes-form button {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        min-height: 46px;
+    }
+
+}
+
+
+/* BOTÃO CANCELAR EDIÇÃO - CURSOS E MATÉRIAS */
+#formDisciplina #btnCancelarEdicao:not([hidden]) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 162px;
+    height: 53px;
+    padding: 0 20px;
+
+    background-color: #e2e8f0 !important;
+    color: #182d5a !important;
+
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 9px !important;
+
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+
+    cursor: pointer;
+    box-shadow: none !important;
+
+    transition: background-color 0.2s ease;
+}
+
+#formDisciplina #btnCancelarEdicao:not([hidden]):hover {
+    background-color: #d7e0eb !important;
+}
+
+/* MANTÉM OCULTO ANTES DA EDIÇÃO */
+#formDisciplina #btnCancelarEdicao[hidden] {
+    display: none !important;
+}
+
+
+
+
+
+
+
+/* CORREÇÃO DEFINITIVA — CARDS DE ACESSO DOS PROFESSORES */
+
+.gestao-pagina-ativa .gestao-acesso-card {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.gestao-pagina-ativa .gestao-acesso-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+}
+
+.gestao-pagina-ativa .gestao-acesso-nome {
+    flex: 1 1 250px;
+    min-width: 0;
+    width: auto;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+.gestao-pagina-ativa .gestao-acesso-detalhes {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+}
+
+.gestao-pagina-ativa .gestao-acesso-detalhes > div {
+    min-width: 0;
+}
+
+@media (max-width: 700px) {
+    .gestao-pagina-ativa .gestao-acesso-card {
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .gestao-pagina-ativa .gestao-acesso-cabecalho {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .gestao-pagina-ativa .gestao-acesso-nome {
+        flex: none;
+        width: 100%;
+    }
+
+    .gestao-pagina-ativa .gestao-acesso-detalhes {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+
+
+/* ==========================================================
+   AÇÕES DOS ACESSOS DOS PROFESSORES
+========================================================== */
+
+.gestao-acesso-acoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.gestao-acesso-acoes button {
+    min-height: 38px;
+    padding: 9px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+/* DESATIVAR */
+
+.gestao-acesso-acoes button[data-acao-acesso="desativar"] {
+    color: #b45309;
+    background: #fff7ed;
+    border-color: #fed7aa;
+}
+
+.gestao-acesso-acoes button[data-acao-acesso="desativar"]:hover {
+    background: #ffedd5;
+    border-color: #fdba74;
+}
+
+/* REATIVAR */
+
+.gestao-acesso-acoes button[data-acao-acesso="reativar"] {
+    color: #15803d;
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.gestao-acesso-acoes button[data-acao-acesso="reativar"]:hover {
+    background: #dcfce7;
+    border-color: #86efac;
+}
+
+/* EXCLUIR */
+
+.gestao-acesso-acoes button[data-acao-acesso="excluir"] {
+    color: #dc2626;
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+.gestao-acesso-acoes button[data-acao-acesso="excluir"]:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+/* INTERAÇÃO */
+
+.gestao-acesso-acoes button:hover {
+    transform: translateY(-1px);
+}
+
+.gestao-acesso-acoes button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.gestao-acesso-acoes button:focus-visible {
+    outline: 3px solid rgba(31, 47, 92, 0.2);
+    outline-offset: 2px;
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+    .gestao-acesso-acoes {
+        gap: 8px;
+    }
+
+    .gestao-acesso-acoes button {
+        flex: 1;
+        padding: 9px 12px;
+    }
+}

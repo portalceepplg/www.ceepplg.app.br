@@ -1,0 +1,660 @@
+.prof-normas {
+    color: #182d5a;
+}
+
+.prof-normas .pagina-cabecalho {
+    margin-bottom: 34px;
+}
+
+.prof-normas .pagina-cabecalho .mini-titulo {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #ff3030;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.prof-normas .pagina-cabecalho h1 {
+    margin: 0 0 8px;
+    color: #182d5a;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
+}
+
+.prof-normas .pagina-cabecalho p {
+    margin: 0;
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.prof-normas .regimento-aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    margin-bottom: 28px;
+    padding: 28px;
+    border: 2px solid #ff3030;
+    border-left: 9px solid #e9232b;
+    border-radius: 15px;
+    background: #fff1f1;
+    color: #a71920;
+}
+
+.prof-normas .regimento-aviso[hidden],
+.prof-normas [hidden] {
+    display: none !important;
+}
+
+.prof-normas .regimento-aviso-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: #e9232b;
+    color: #fff;
+    font-size: 28px;
+}
+
+.prof-normas .regimento-aviso-etiqueta {
+    display: block;
+    margin: 4px 0 10px;
+    color: #b91c1c;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.prof-normas .regimento-aviso h2 {
+    margin: 0 0 16px;
+    color: #a71920;
+    font-size: 27px;
+}
+
+.prof-normas .regimento-aviso p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.prof-normas .regimento-documento {
+    overflow: hidden;
+    border: 1px solid #dce3ee;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.prof-normas .regimento-documento-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 24px;
+}
+
+.prof-normas .regimento-documento-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    border-radius: 13px;
+    background: #fff0f0;
+    color: #e9232b;
+    font-size: 26px;
+}
+
+.prof-normas .regimento-documento-cabecalho h2 {
+    margin: 0 0 6px;
+    color: #182d5a;
+    font-size: 21px;
+}
+
+.prof-normas .regimento-documento-cabecalho p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   VISUALIZADOR DO REGIMENTO ESCOLAR - PDF.JS
+========================================================== */
+
+.prof-normas .regimento-pdf {
+    width: 100%;
+    height: 650px;
+    min-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    box-sizing: border-box;
+    padding: 20px;
+    border-top: 1px solid #dce3ee;
+    background: #f1f5f9;
+}
+
+.prof-normas #regimentoPDFPaginas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+}
+
+.prof-normas #regimentoPDFPaginas canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(31, 47, 92, 0.12);
+}
+
+.prof-normas #regimentoPDFCarregando {
+    padding: 24px;
+    color: #64748b;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ==========================================================
+   AÇÕES DO DOCUMENTO
+========================================================== */
+
+.prof-normas .regimento-documento-acoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 18px 24px;
+    border-top: 1px solid #dce3ee;
+}
+
+.prof-normas .regimento-documento-acoes p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.prof-normas .regimento-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 18px;
+    border-radius: 9px;
+    background: #ff3030;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.prof-normas .regimento-btn:hover {
+    background: #e30613;
+}
+
+.prof-normas #regimentoErro {
+    margin: 0;
+    padding: 16px 24px;
+    color: #b91c1c;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE - NORMAS E REGRAS
+========================================================== */
+
+@media (max-width: 700px) {
+    .prof-normas .regimento-aviso {
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .prof-normas .regimento-aviso-icone {
+        flex-basis: 48px;
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+    }
+
+    .prof-normas .regimento-aviso h2 {
+        font-size: 21px;
+    }
+
+    .prof-normas .regimento-pdf {
+        height: 65vh;
+        min-height: 400px;
+        max-height: 650px;
+        padding: 10px;
+    }
+
+    .prof-normas .regimento-documento-cabecalho {
+        padding: 18px;
+    }
+
+    .prof-normas .regimento-documento-acoes {
+        align-items: flex-start;
+        padding: 18px;
+    }
+}
+/* ==========================================================
+   TÍTULO DA SIDEBAR
+========================================================== */
+
+.professor-sidebar-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.professor-sidebar-titulo h2 {
+    margin: 0;
+}
+
+.btn-senha-professor {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border: 1px solid #dce3ee;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #1f2f5c;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.btn-senha-professor:hover {
+    background: #ff3030;
+    border-color: #ff3030;
+    color: #ffffff;
+}
+
+/* ================================
+   MEU PERFIL - ÁREA DO PROFESSOR
+================================ */
+
+.professor-conteudo [data-pagina-prof="perfil"] {
+    max-width: 100%;
+}
+
+.professor-conteudo [data-pagina-prof="perfil"] .cabecalho-pagina {
+    margin-bottom: 28px;
+}
+
+.professor-conteudo [data-pagina-prof="perfil"] .cabecalho-pagina h1 {
+    color: #1f2f5c;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 8px 0;
+}
+
+.professor-conteudo [data-pagina-prof="perfil"] .cabecalho-pagina p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Blocos principais */
+
+.professor-perfil-dados,
+.professor-perfil-senha {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(31, 47, 92, 0.04);
+}
+
+.professor-perfil-dados h2,
+.professor-perfil-senha h2 {
+    color: #1f2f5c;
+    font-size: 17px;
+    font-weight: 800;
+    margin: 0 0 22px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Dados do professor */
+
+.professor-perfil-dados {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.professor-perfil-dados h2 {
+    grid-column: 1 / -1;
+}
+
+.professor-dado {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+    padding: 15px;
+    background: #f8f9fc;
+    border: 1px solid #edf0f5;
+    border-radius: 10px;
+}
+
+.professor-dado span {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.professor-dado strong {
+    color: #1f2f5c;
+    font-size: 14px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Formulário de senha */
+
+.professor-perfil-senha > p {
+    color: #64748b;
+    font-size: 13px;
+    margin: -10px 0 22px;
+}
+
+#formAlterarSenha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 18px;
+    max-width: 760px;
+}
+
+#formAlterarSenha label {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+#formAlterarSenha input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid #dce2ec;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #182d5a;
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+#formAlterarSenha input:focus {
+    border-color: #1f2f5c;
+    box-shadow: 0 0 0 3px rgba(31, 47, 92, .09);
+}
+
+#formAlterarSenha button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 12px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 9px;
+    background: #1f2f5c;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+#formAlterarSenha button:hover {
+    background: #e30613;
+    transform: translateY(-1px);
+}
+
+#mensagemAlterarSenha {
+    grid-column: 1 / -1;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 4px 0 0;
+}
+
+/* Responsividade */
+
+@media (max-width: 650px) {
+    .professor-perfil-dados {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .professor-perfil-senha {
+        padding: 18px;
+    }
+
+    #formAlterarSenha {
+        grid-template-columns: 1fr;
+    }
+
+    #formAlterarSenha button {
+        grid-column: 1;
+        width: 100%;
+    }
+}
+
+/* ACESSO AO MEU PERFIL NA SIDEBAR */
+
+.professor-sidebar .professor-perfil-acesso {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #1f2f5c;
+    text-align: left;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.professor-sidebar .professor-perfil-acesso:hover {
+    border-color: #ff3030;
+    background: #fffafa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(31, 47, 92, 0.08);
+}
+
+.professor-perfil-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #edf1f9;
+    color: #1f2f5c;
+    font-size: 16px;
+}
+
+.professor-perfil-identificacao {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.professor-perfil-identificacao strong {
+    color: #1f2f5c;
+    font-size: 12px;
+    font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.professor-perfil-identificacao small {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.professor-perfil-acesso > i {
+    color: #94a3b8;
+    font-size: 11px;
+    transition: transform .2s ease;
+}
+
+.professor-perfil-acesso:hover > i {
+    color: #e30613;
+    transform: translateX(3px);
+}
+
+/* CAMPOS DE SENHA E BOTÃO DE VISUALIZAÇÃO */
+
+.campo-senha-professor {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+#formAlterarSenha .campo-senha-professor input {
+    display: block;
+    width: 100%;
+    height: 44px;
+    padding: 0 46px 0 14px !important;
+    box-sizing: border-box;
+}
+
+#formAlterarSenha .alternar-visualizacao-senha {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0 9px 9px 0;
+    background: transparent;
+    color: #64748b;
+    box-shadow: none;
+    transform: none;
+    cursor: pointer;
+}
+
+#formAlterarSenha .alternar-visualizacao-senha:hover {
+    background: transparent;
+    color: #1f2f5c;
+    transform: none;
+}
+
+#formAlterarSenha .alternar-visualizacao-senha i {
+    font-size: 15px;
+    pointer-events: none;
+}
+
+#formAlterarSenha .alternar-visualizacao-senha:focus-visible {
+    outline: 2px solid #1f2f5c;
+    outline-offset: -3px;
+}
+
+#formAlterarSenha button[type="submit"]:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   ACESSO DE RETORNO À GESTÃO
+========================================================== */
+
+/* Oculta na Área normal do Professor */
+
+.professor-voltar-gestao {
+    display: none !important;
+}
+
+/* Exibe somente quando a Gestão acessa a área do Professor */
+
+body.gestor-acessando-professor .professor-voltar-gestao {
+    display: flex !important;
+}
+
+/* Mantém o acesso ao perfil visível para a Gestão */
+
+body.gestor-acessando-professor .professor-sidebar .professor-perfil-acesso {
+    display: flex !important;
+}
+
+/* Oculta a página de perfil */
+
+body.gestor-acessando-professor .professor-conteudo [data-pagina-prof="perfil"] {
+    display: none !important;
+}
+
+/* Oculta a saída da conta do professor somente para a Gestão */
+
+body.gestor-acessando-professor .professor-sidebar #btnSair {
+    display: none !important;
+}
+
+/* ==========================================================
+   PERFIL DO PROFESSOR NO MENU MOBILE
+========================================================== */
+
+@media (max-width: 750px) {
+
+    .professor-sidebar .sidebar-topo {
+        display: block !important;
+        padding: 5px 8px 12px;
+    }
+
+    .professor-sidebar .sidebar-topo h2,
+    .professor-sidebar .sidebar-topo .linha-vermelha {
+        display: none;
+    }
+
+    .professor-sidebar .professor-perfil-acesso {
+        display: flex !important;
+        align-items: center;
+        width: 100%;
+        min-height: 58px;
+        padding: 8px 10px;
+    }
+
+    .professor-sidebar .professor-perfil-avatar {
+        display: flex !important;
+        flex-shrink: 0;
+    }
+
+    .professor-sidebar .professor-perfil-identificacao {
+        display: flex !important;
+        flex-direction: column;
+    }
+}
+
+/* REMOVE O BOTÃO DE RETORNO À GESTÃO NA ÁREA DO PROFESSOR */
+
+body:not(.gestor-acessando-professor) .professor-voltar-gestao {
+    display: none !important;
+}

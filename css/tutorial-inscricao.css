@@ -1,0 +1,466 @@
+
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("../fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+.pagina-tutorial-inscricao {
+    --tutorial-azul: #1f2f5c;
+    --tutorial-texto: #182d5a;
+    --tutorial-vermelho: #ff3030;
+    --tutorial-muted: #64748b;
+    --tutorial-borda: #e2e8f0;
+
+    margin: 0;
+    background: #f8f9fc;
+    color: var(--tutorial-texto);
+    font-family: "Plus Jakarta Sans", Arial, sans-serif;
+    line-height: 1.65;
+}
+
+.pagina-tutorial-inscricao * {
+    box-sizing: border-box;
+}
+
+.pagina-tutorial-inscricao a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.pagina-tutorial-inscricao main {
+    width: min(100% - 40px, 1060px);
+    margin: 0 auto;
+    padding-top: 24px;
+}
+
+/* APRESENTAÇÃO */
+
+.tutorial-hero {
+    padding: 76px 20px 58px;
+    text-align: center;
+}
+
+.tutorial-sobretitulo {
+    display: inline-block;
+    color: var(--tutorial-vermelho);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.tutorial-hero h1 {
+    max-width: 760px;
+    margin: 13px auto 14px;
+    color: var(--tutorial-azul);
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -1.5px;
+}
+
+.tutorial-hero h1 span {
+    color: var(--tutorial-vermelho);
+}
+
+.tutorial-hero > p:not(.tutorial-nota-hero) {
+    max-width: 720px;
+    margin: 0 auto 25px;
+    color: var(--tutorial-muted);
+    font-size: 15px;
+}
+
+.tutorial-botao {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background .25s ease, transform .25s ease;
+}
+
+.tutorial-botao:hover {
+    transform: translateY(-2px);
+}
+
+.tutorial-botao-principal {
+    background: var(--tutorial-vermelho);
+    color: #fff;
+}
+
+.tutorial-botao-principal:hover {
+    background: #e30613;
+    color: #fff;
+}
+
+.tutorial-nota-hero {
+    margin: 12px 0 0;
+    color: #8490a3;
+    font-size: 11px;
+}
+
+/* AVISO INICIAL */
+
+.tutorial-aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 25px;
+    border: 1px solid #f0d8d8;
+    border-left: 4px solid var(--tutorial-vermelho);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(15, 35, 75, .035);
+}
+
+.tutorial-aviso-icone {
+    display: grid;
+    flex: 0 0 34px;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: #fff0f0;
+    color: var(--tutorial-vermelho);
+    font-weight: 800;
+}
+
+.tutorial-aviso h2 {
+    margin: 0 0 4px;
+    color: var(--tutorial-azul);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.tutorial-aviso p {
+    margin: 0;
+    color: var(--tutorial-muted);
+    font-size: 13px;
+}
+
+/* ETAPAS */
+
+.tutorial-etapas {
+    padding: 76px 0 20px;
+}
+
+.tutorial-secao-cabecalho {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.tutorial-secao-cabecalho h2 {
+    margin: 8px 0 5px;
+    color: var(--tutorial-azul);
+    font-size: clamp(24px, 3.5vw, 32px);
+    font-weight: 800;
+    letter-spacing: -.7px;
+}
+
+.tutorial-secao-cabecalho p {
+    margin: 0;
+    color: var(--tutorial-muted);
+    font-size: 13px;
+}
+
+/* CARTÕES DAS ETAPAS */
+
+.tutorial-etapa {
+    display: grid;
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+    align-items: center;
+    gap: clamp(24px, 5vw, 58px);
+    margin-bottom: 22px;
+    padding: 30px;
+    border: 1px solid var(--tutorial-borda);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(15, 35, 75, .035);
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.tutorial-etapa:hover {
+    border-color: #cbd7e8;
+    box-shadow: 0 10px 26px rgba(15, 35, 75, .07);
+}
+
+.tutorial-etapa:nth-of-type(even) .tutorial-etapa-conteudo {
+    order: 2;
+}
+
+.tutorial-etapa:nth-of-type(even) .tutorial-figura {
+    order: 1;
+}
+
+.tutorial-etapa-conteudo {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.tutorial-numero {
+    display: grid;
+    flex: 0 0 43px;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    border-radius: 10px;
+    background: #edf2fb;
+    color: var(--tutorial-azul);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.tutorial-etapa h3 {
+    margin: 2px 0 9px;
+    color: var(--tutorial-azul);
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.tutorial-etapa p {
+    margin: 0 0 10px;
+    color: var(--tutorial-muted);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+.tutorial-etapa p:last-child {
+    margin-bottom: 0;
+}
+
+.tutorial-etapa strong {
+    color: #33466f;
+    font-weight: 800;
+}
+
+/* IMAGENS */
+
+.tutorial-figura {
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    border: 1px solid var(--tutorial-borda);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(24, 45, 90, .055);
+}
+
+.tutorial-figura img {
+    display: block;
+    width: 100%;
+    max-height: 490px;
+    object-fit: contain;
+    border-radius: 7px;
+}
+
+.tutorial-figura figcaption {
+    padding: 10px 5px 2px;
+    color: #8490a3;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* AVISO FINAL */
+
+.tutorial-atencao {
+    margin: 42px 0;
+    padding: 25px 28px;
+    border: 1px solid #f3d6d6;
+    border-left: 4px solid var(--tutorial-vermelho);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.tutorial-atencao h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 8px;
+    color: #b4232b;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.tutorial-atencao h2 span {
+    display: grid;
+    width: 27px;
+    height: 27px;
+    place-items: center;
+    border-radius: 8px;
+    background: #fff0f0;
+    font-size: 14px;
+}
+
+.tutorial-atencao p {
+    margin: 0;
+    color: #79575a;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* CHAMADA FINAL */
+
+.tutorial-cta {
+    margin: 55px 0 65px;
+    padding: 48px 25px;
+    border-radius: 16px;
+    background: var(--tutorial-azul);
+    text-align: center;
+    box-shadow: 0 10px 28px rgba(24, 45, 90, .12);
+}
+
+.tutorial-cta h2 {
+    margin: 8px 0 5px;
+    color: #fff;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.tutorial-cta p {
+    margin: 0 0 22px;
+    color: #dce4f3;
+    font-size: 13px;
+}
+
+.tutorial-cta .tutorial-sobretitulo {
+    color: #ff7777;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    .tutorial-etapa {
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .tutorial-etapa h3 {
+        font-size: 17px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 700px) {
+    .pagina-tutorial-inscricao main {
+        width: min(100% - 30px, 560px);
+        padding-top: 100px;
+    }
+
+    .tutorial-hero {
+        padding: 54px 5px 40px;
+    }
+
+    .tutorial-hero h1 {
+        font-size: clamp(29px, 8vw, 38px);
+        letter-spacing: -.8px;
+    }
+
+    .tutorial-hero > p:not(.tutorial-nota-hero) {
+        font-size: 13px;
+    }
+
+    .tutorial-botao {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .tutorial-aviso {
+        padding: 18px;
+    }
+
+    .tutorial-etapas {
+        padding-top: 55px;
+    }
+
+    .tutorial-etapa,
+    .tutorial-etapa:nth-of-type(even) {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .tutorial-etapa:nth-of-type(even) .tutorial-etapa-conteudo,
+    .tutorial-etapa:nth-of-type(even) .tutorial-figura {
+        order: initial;
+    }
+
+    .tutorial-etapa h3 {
+        font-size: 17px;
+    }
+
+    .tutorial-etapa p {
+        font-size: 13px;
+    }
+
+    .tutorial-figura img {
+        max-height: none;
+    }
+
+    .tutorial-atencao {
+        margin: 30px 0;
+        padding: 21px;
+    }
+
+    .tutorial-cta {
+        margin: 40px 0 45px;
+        padding: 34px 20px;
+    }
+
+    .tutorial-cta h2 {
+        font-size: 23px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 380px) {
+    .tutorial-etapa,
+    .tutorial-etapa:nth-of-type(even) {
+        padding: 16px;
+    }
+
+    .tutorial-etapa-conteudo {
+        gap: 11px;
+    }
+
+    .tutorial-numero {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+.tutorial-botao:focus-visible {
+    outline: 3px solid #ff7777;
+    outline-offset: 4px;
+}
+
+/* REDUÇÃO DE ANIMAÇÕES */
+
+@media (prefers-reduced-motion: reduce) {
+    .tutorial-botao,
+    .tutorial-etapa {
+        transition: none;
+    }
+
+    .tutorial-botao:hover,
+    .tutorial-etapa:hover {
+        transform: none;
+    }
+}
